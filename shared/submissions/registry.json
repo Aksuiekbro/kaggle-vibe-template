@@ -1,0 +1,10 @@
+{
+  "competition": "unknown",
+  "submissions": [],
+  "best_scores": {
+    "claude": null,
+    "codex": null,
+    "gemini": null
+  },
+  "daily_counts": {}
+}

@@ -1,0 +1,56 @@
+# Competition data
+shared/data/
+*.csv
+*.parquet
+*.h5
+*.pkl
+*.joblib
+
+# Agent workspaces (large generated files)
+agents/*/workspace/**/*.csv
+agents/*/workspace/**/*.parquet
+agents/*/workspace/**/*.pkl
+agents/*/workspace/**/*.h5
+agents/*/workspace/**/*.joblib
+agents/*/workspace/**/*.model
+agents/*/workspace/**/*.weights
+agents/*/workspace/__pycache__/
+
+# Staged submissions (keep registry, ignore actual files)
+agents/*/submissions/*.csv
+
+# Shared best (sharing round artifacts)
+shared/best/
+
+# AI scratch and runs
+.ai/scratch/
+.ai/runs/
+.ai/transcripts/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+*.egg-info/
+
+# C/C++ build artifacts
+*.o
+*.so
+*.dylib
+*.exe
+a.out
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Kaggle
+kaggle.json
