@@ -3,14 +3,26 @@
 You are the operator. Your total hands-on time: ~30 min at start, ~10 min twice
 a day, ~1 h at the end. Everything else runs unattended.
 
-## Phase 0 — Setup (once, ~30 min)
+## Phase 0 — Setup (once, ~5 min of your attention)
 
-1. On kaggle.com: accept the competition rules (downloads fail otherwise).
-2. `make setup COMP=<slug>` — downloads data, scaffolds workspaces, archives the
-   previous competition's workspaces if any.
-3. Fill `COMPETITION.md` — at minimum **Metric** and **Direction**
-   (`maximize`/`minimize`): the score gate reads these.
-4. `make selfcheck` — must be green before launching anything.
+Your only truly-manual step: **accept the competition rules on kaggle.com** in
+your browser (Kaggle requires a logged-in click; the API/CLI cannot do it, and
+data downloads fail until it's done).
+
+Then open a Claude Code session and type:
+
+```
+/setup-competition <slug>
+```
+
+The agent does the rest: downloads data (Kaggle MCP/CLI), scaffolds workspaces
+(archiving the previous competition's), fills COMPETITION.md including the
+Metric/Direction fields the score gate needs, and runs selfcheck. It will tell
+you if anything needs you.
+
+(Every `make xyz` in this runbook is just a shortcut for a `python tools/...`
+command — see the Makefile. You never need make; you can always ask an agent
+to run the underlying tool, or run it yourself.)
 
 ## Phase 1 — Pre-registration (before ANY reading)
 
