@@ -12,6 +12,7 @@ sys.path.insert(0, str(PROJECT_ROOT / "tools"))
 
 from registry import load_registry, save_registry, add_submission, get_agent_best, check_diversity
 from evaluate import evaluate, parse_competition_md
+from discipline import ledger_event
 
 
 def submit_via_cli(competition, filepath, description):
@@ -63,6 +64,11 @@ def main():
     config = parse_competition_md()
     competition = registry["competition"]
 
+    if args.force:
+        # overrides stay possible but never invisible (same policy as writeup.py --force)
+        ledger_event("C1", "violated", args.agent, "--force used: score gate bypassed")
+        print("NOTE: --force logged to the constitution ledger as a C1 violation.")
+
     print(f"\n{'='*60}")
     print(f"Submission Gate — Agent: {args.agent}")
     print(f"{'='*60}")
@@ -103,6 +109,7 @@ def main():
         if direction == "maximize" and local_score <= best_local:
             print(f"\nREJECTED: Score {local_score} does not beat current best {best_local}")
             print(f"  Direction: {direction}")
+            ledger_event("C1", "prevented", args.agent, f"score gate rejected {local_score} vs {best_local}")
             add_submission(
                 registry, args.agent, str(filepath),
                 local_score=local_score, cv_std=cv_std, flags=flags,
@@ -113,6 +120,7 @@ def main():
         elif direction == "minimize" and local_score >= best_local:
             print(f"\nREJECTED: Score {local_score} does not beat current best {best_local}")
             print(f"  Direction: {direction}")
+            ledger_event("C1", "prevented", args.agent, f"score gate rejected {local_score} vs {best_local}")
             add_submission(
                 registry, args.agent, str(filepath),
                 local_score=local_score, cv_std=cv_std, flags=flags,
@@ -125,10 +133,12 @@ def main():
     if not diverse:
         print(f"\nWARNING: {diversity_msg}")
         print(f"  Submitting anyway, but consider changing strategy.")
+        ledger_event("C7", "violated", args.agent, diversity_msg)
 
     if current_best:
         best_score = current_best.get("local_score", "N/A")
         print(f"\nScore gate PASSED: {local_score} beats current best {best_score}")
+        ledger_event("C1", "fired", args.agent, f"score gate passed {local_score} > {best_score}")
     else:
         print(f"\nFirst submission for {args.agent} — no gate check needed")
 
@@ -164,6 +174,7 @@ def main():
         description=args.description, approach=args.approach,
         method=method, provenance_type=provenance_type,
         based_on=args.based_on, status="submitted",
+        direction=config.get("direction", "maximize"),
     )
 
     print(f"\nSUBMITTED: {sub_id}")

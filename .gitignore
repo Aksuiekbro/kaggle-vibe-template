@@ -27,6 +27,10 @@ shared/best/
 .ai/runs/
 .ai/transcripts/
 
+# Gym run state (snapshots/workspaces are bulky and per-run; RUNS.jsonl at
+# .ai/gym/ top level stays tracked — it is the cross-run A/B record)
+.ai/gym/*/
+
 # Python
 __pycache__/
 *.pyc

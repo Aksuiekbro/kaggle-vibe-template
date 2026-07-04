@@ -1,0 +1,30 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$(git rev-parse --show-toplevel)/tools/brief.py\" generate --agent codex || true",
+            "timeout": 30,
+            "statusMessage": "Generate session brief"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$(git rev-parse --show-toplevel)/tools/writeup.py\" hook --agent codex",
+            "timeout": 30,
+            "statusMessage": "Practice constitution gate (C2)"
+          }
+        ]
+      }
+    ]
+  }
+}

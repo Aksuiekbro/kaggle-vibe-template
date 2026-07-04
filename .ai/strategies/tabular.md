@@ -4,6 +4,14 @@ Classification and regression on structured/tabular data. This is reference mate
 
 ## Approach Order (start simple, add complexity)
 
+### 0. Similar Winner Upsolve
+- Before heavy feature engineering, find similar past regression/classification competitions
+- Match by metric, split type, data shape, target distribution, and leakage risk
+- Prefer top 3 winner writeups when available and record whether they converge on the same load-bearing pattern
+- Extract winner patterns as hypotheses: CV scheme, feature families, model families, ensembling, calibration, target transforms, postprocessing
+- Convert each pattern into a small validation experiment before adding it to STRATEGY.md
+- Use prospective prediction/postmortem loops from `.ai/checklists/kaggle-upsolve.md` and `.ai/checklists/postmortem.md`
+
 ### 1. EDA + Baseline (first hour)
 - Understand the data: dtypes, missing values, distributions, correlations
 - Identify target variable and evaluation metric
@@ -62,4 +70,4 @@ Classification and regression on structured/tabular data. This is reference mate
 - Most Kaggle tabular winners: LightGBM + XGBoost + CatBoost ensemble
 - Playground Series: heavy feature engineering + stacking
 - Feature selection matters as much as model choice
-- NVIDIA Kaggle win (2026): 150-model four-level stack with cuDF/cuML
+- Treat these as starting hypotheses. Durable claims should be backed by memory cards with sources, scope, evidence, and counter-evidence.

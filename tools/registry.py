@@ -43,7 +43,8 @@ def next_id(registry):
 
 def add_submission(registry, agent, file_path, local_score, cv_std, flags,
                    description, approach, method="unknown", kaggle_score=None,
-                   provenance_type="original", based_on=None, status="submitted"):
+                   provenance_type="original", based_on=None, status="submitted",
+                   direction="maximize"):
     sub_id = next_id(registry)
     today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
 
@@ -74,14 +75,24 @@ def add_submission(registry, agent, file_path, local_score, cv_std, flags,
     registry["daily_counts"][today][agent] = registry["daily_counts"][today].get(agent, 0) + 1
     registry["daily_counts"][today]["total"] = registry["daily_counts"][today].get("total", 0) + 1
 
-    if status == "submitted" and kaggle_score is not None:
-        current_best = registry["best_scores"].get(agent)
-        if current_best is None or kaggle_score > current_best.get("kaggle_score", float("-inf")):
-            registry["best_scores"][agent] = {
-                "id": sub_id,
-                "kaggle_score": kaggle_score,
-                "local_score": local_score,
-            }
+    # The score gate compares against best_scores, so it must track the local
+    # score at submission time — kaggle_score arrives later, if ever.
+    if status == "submitted":
+        score = kaggle_score if kaggle_score is not None else local_score
+        if score is not None:
+            current_best = registry["best_scores"].get(agent)
+            prev = None
+            if current_best:
+                prev = current_best.get("kaggle_score")
+                if prev is None:
+                    prev = current_best.get("local_score")
+            better = prev is None or (score > prev if direction == "maximize" else score < prev)
+            if better:
+                registry["best_scores"][agent] = {
+                    "id": sub_id,
+                    "kaggle_score": kaggle_score,
+                    "local_score": local_score,
+                }
 
     save_registry(registry)
     return sub_id

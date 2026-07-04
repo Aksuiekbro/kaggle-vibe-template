@@ -63,6 +63,26 @@ Human-triggered collaboration: each agent's best work is shared, and agents can 
 ### Evolving Strategies
 Agents read shared reference strategies from `.ai/strategies/` as starting points, then develop their own `STRATEGY.md` in their workspace based on what experiments reveal.
 
+### Kaggle Upsolve Protocol
+Agents study similar past competitions the way competitive programmers upsolve editorials: learn recurring winner patterns, convert them into experiments, and validate transfer before promoting them into strategy. Transfer skill is measured with pre-registered predictions and post-competition postmortems, not by random retrospective splits over famous old competitions.
+
+### Curated Memory
+Durable lessons live as reviewed Markdown/YAML memory cards under `.ai/memory/`. Memory is treated as hypotheses with evidence and counter-evidence; local validation and the score gate remain the authority.
+
+### Consolidation
+Agents draft shared-plan updates, memory candidates, and predictions in their own workspaces. `tools/share.py end` collects those drafts into `.ai/runs/<timestamp>/consolidation/`. The `/consolidate` skill then runs the whole merge as survey → decision menu → execution → verified report — the human only picks from the menu; all mechanical work, validation, and the diff summary are automated. Constitution and gate changes are never applied by the skill, only proposed.
+
+### Second Brain (behavior change without weight updates)
+A three-layer architecture (`.ai/ARCHITECTURE.md`): an always-loaded **practice
+constitution** of numbered rules that must pay rent (`.ai/constitution.md`);
+**hard gates and a fake-practice linter** that enforce the load-bearing rules
+mechanically — predict-before-read (`tools/writeup.py` + a Claude Code hook), the
+score gate, cross-review-only memory promotion, and self-deception detection
+(`tools/practice_lint.py`); and **curated memory with a measured trust loop** —
+cards and executable skills whose trust is their own predicted-vs-actual track
+record (`tools/memory_cli.py`, `tools/skills.py`). Consolidation promotes proven
+lessons upward (card → rule → gate) and demotes what stops earning its keep.
+
 ## Directory Structure
 
 ```
@@ -71,8 +91,11 @@ Agents read shared reference strategies from `.ai/strategies/` as starting point
 ├── PLAN.md               Shared idea bank
 ├── CLAUDE.md / AGENTS.md / GEMINI.md   Agent-specific specs
 ├── .ai/
+│   ├── ARCHITECTURE.md   Second-brain design + comparison with prior systems
+│   ├── constitution.md   Numbered practice rules (C1–C14), versioned, rent-tracked
 │   ├── prompts/          Role charters (solver, reviewer, researcher)
 │   ├── checklists/       Quality gates
+│   ├── memory/           Curated memory: cards, skills, predictions, ledgers
 │   ├── strategies/       Reference strategy guides per competition type
 │   └── reviews/          Cross-review verdicts
 ├── agents/
@@ -86,15 +109,33 @@ Agents read shared reference strategies from `.ai/strategies/` as starting point
 └── tools/                Python orchestration scripts
 ```
 
+## Operating It
+
+`RUNBOOK.md` is the operator manual: setup → pre-registration → 24/7 agent
+loops (tmux + headless `/day` blocks) → twice-daily 10-minute check-ins →
+endgame protocol → post-close postmortem → gym runs between competitions.
+
 ## Tools
 
 | Tool | Usage | Purpose |
 |------|-------|---------|
-| `setup.py` | `python tools/setup.py --competition <slug>` | Initialize workspace for a competition |
+| `setup.py` | `python tools/setup.py --competition <slug>` | Initialize workspace (archives the previous competition's workspaces) |
 | `evaluate.py` | `python tools/evaluate.py --agent <name> --file <path>` | Local evaluation with CV + overfitting flags |
 | `submit.py` | `python tools/submit.py --agent <name> --file <path> --description "..."` | Score-gated submission (MCP → CLI fallback) |
-| `share.py` | `python tools/share.py [start\|status\|end]` | Manage sharing rounds |
+| `share.py` | `python tools/share.py [start\|status\|end]` | Manage sharing rounds and collect consolidation drafts |
 | `registry.py` | `python tools/registry.py status` | View submission registry |
+| `brief.py` | `python tools/brief.py generate --agent <name>` | Session-start context pack: gate, constitution, calibration, memory, skills, queue |
+| `writeup.py` | `python tools/writeup.py check\|log\|hook --agent <name>` | Predict-before-read gate + reading ledger (C2) |
+| `practice_lint.py` | `python tools/practice_lint.py [--agent <name>]` | Fake-practice linter (self-deception signatures) |
+| `memory_cli.py` | `python tools/memory_cli.py retrieve\|writeback\|promote\|log-miss\|revalidation-due\|dedup\|sweep\|stats\|amend-proposals` | Curated memory with measured trust, write-back, retrieval health, lifecycle checks |
+| `skills.py` | `python tools/skills.py list\|test\|log-use\|stats` | Executable skill library with win-rates |
+| `scheduler.py` | `python tools/scheduler.py add\|next\|record\|status --agent <name>` | Successive-halving experiment queue (C13) |
+| `verifiers.py` | `python tools/verifiers.py columns\|cv-lb\|folds` | Mechanical leak/drift/agreement probes |
+| `calibration.py` | `python tools/calibration.py report --write` | Confidence-vs-accuracy corrections (C14) |
+| `stack.py` | `python tools/stack.py correlation\|blend\|select-finals` | Agent-level ensembling + final selection |
+| `fingerprint.py` | `python tools/fingerprint.py compute\|compare` | Measured competition similarity |
+| `gym.py` | `python tools/gym.py start\|score\|end\|report` | Shadow gym on finished competitions (memory A/B) |
+| `selfcheck.py` | `python tools/selfcheck.py` | Acceptance battery — verifies every gate and loop |
 
 ## Agent Failure Mode Mitigations
 
