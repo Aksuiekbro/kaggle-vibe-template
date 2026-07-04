@@ -70,6 +70,11 @@ Notes:
 - Permission modes: `acceptEdits` keeps a safety floor. Fully unattended runs
   need broader permissions — prefer an allowlist in `.claude/settings.json`
   over blanket skips, and only on a machine you'd let an agent loose on.
+- **Two-agent mode**: if one agent's account can't run on the server, run the
+  other two 24/7 — every tool skips agents with empty workspaces. The third
+  agent can still contribute as a part-time reviewer from another machine via
+  git: pull → write cross-reviews / memory-candidate reviews into
+  `.ai/reviews/` → push. Reviews are files; no shared-state conflicts.
 
 ## Phase 3 — Your ritual (2 × 10 min per day)
 
