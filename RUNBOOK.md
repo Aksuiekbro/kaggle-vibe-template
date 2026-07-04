@@ -9,11 +9,23 @@ Your only truly-manual step: **accept the competition rules on kaggle.com** in
 your browser (Kaggle requires a logged-in click; the API/CLI cannot do it, and
 data downloads fail until it's done).
 
+Then, on the machine that will run the agents, create the competition branch —
+`main` stays the clean template + accumulated memory; all competition-instance
+state (COMPETITION.md, registry, PLAN rows, workspaces) lives on the branch:
+
+```
+git checkout -b comp/<slug>
+```
+
 Then open a Claude Code session and type:
 
 ```
 /setup-competition <slug>
 ```
+
+At consolidation/postmortem, merge ONLY durable knowledge back to main:
+`.ai/memory/` (cards, skills, predictions), and any checklist/tool improvements.
+The branch itself is kept (not deleted) as the competition's archive.
 
 The agent does the rest: downloads data (Kaggle MCP/CLI), scaffolds workspaces
 (archiving the previous competition's), fills COMPETITION.md including the
