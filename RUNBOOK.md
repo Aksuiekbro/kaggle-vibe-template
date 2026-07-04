@@ -124,3 +124,28 @@ the second brain is earning its keep.
 | Is memory healthy | `make memory-stats`, `make amend` |
 | Is the harness intact | `make selfcheck` |
 | Is memory helping at all | `make gym-report` |
+
+## Appendix — tmux in 5 minutes (first-timers)
+
+tmux keeps terminals alive on the machine after you disconnect — without it,
+closing your laptop or dropping SSH kills the agent loops.
+
+Install: `brew install tmux` (Mac) or `sudo apt install -y tmux` (Ubuntu droplet).
+
+Every tmux command = press `Ctrl+b`, release, then one more key.
+
+| You want to | Do this |
+|---|---|
+| Start a session named kaggle | `tmux new -s kaggle` |
+| New window inside it | `Ctrl+b` then `c` |
+| Switch windows | `Ctrl+b` then `0` / `1` / `2` |
+| Rename current window | `Ctrl+b` then `,` |
+| Detach (everything keeps running) | `Ctrl+b` then `d` |
+| Come back | `tmux attach -t kaggle` |
+| Scroll output | `Ctrl+b` then `[` (q to stop) |
+| List sessions | `tmux ls` |
+
+First-time walkthrough: SSH in → `tmux new -s kaggle` → rename window 0 to
+"claude", paste its loop → `Ctrl+b c`, rename "codex", paste its loop →
+`Ctrl+b c`, rename "gemini", paste its loop → `Ctrl+b d` → log out. Next day:
+`tmux attach -t kaggle` and flip through the windows.
