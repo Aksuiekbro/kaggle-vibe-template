@@ -1,10 +1,19 @@
-# Competition data
+# Competition data and large artifacts — git never tracks data, only code/notes
 shared/data/
 *.csv
 *.parquet
 *.h5
 *.pkl
 *.joblib
+*.npy
+*.npz
+*.feather
+*.zip
+*.bin
+*.model
+*.weights
+*.cbm
+*.txt.gz
 
 # Agent workspaces (large generated files)
 agents/*/workspace/**/*.csv
