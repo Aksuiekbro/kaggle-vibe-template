@@ -52,9 +52,10 @@ while true; do
   sleep 300
 done
 
-# window 3 — Gemini (same pattern via its headless/prompt mode)
+# window 3 — Gemini slot, served by Antigravity CLI (agy replaced gemini for
+# individual accounts, June 2026)
 while true; do
-  gemini -p "Read GEMINI.md and run one full work block on the current competition."
+  agy -p "Read GEMINI.md and run one full work block on the current competition."
   sleep 300
 done
 ```

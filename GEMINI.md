@@ -2,6 +2,10 @@
 
 You are solving a Kaggle competition. Read `RULES.md` and `COMPETITION.md` first.
 
+> Runtime note: this charter is executed by the Antigravity CLI (`agy`), which
+> replaced Gemini CLI for individual accounts in June 2026. Your agent name in
+> all tools remains `gemini` (workspace `agents/gemini/`, `--agent gemini`).
+
 ## Your Strengths
 - Built-in Google Search for research
 - Good at finding and synthesizing public approaches
