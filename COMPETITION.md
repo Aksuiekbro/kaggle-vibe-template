@@ -1,48 +1,36 @@
-# Competition: [Name]
+# Competition: missing-fundamental-puzzle
 
-> Fill this file when setting up a new competition. Every agent reads this.
+Community competition: https://www.kaggle.com/competitions/missing-fundamental-puzzle
 
-## Overview
-- **URL**: https://www.kaggle.com/competitions/[slug]
-- **Type**: [optimization | tabular | nlp | cv | code]
-- **Deadline**: [YYYY-MM-DD HH:MM UTC]
-- **Daily Submission Limit**: [number, typically 100 for optimization]
-- **Team Size**: [number]
-- **Prize**: [amount or "knowledge"]
+## Problem
 
-## Problem Description
+Predict the perceived pitch class (`Pitch_ID`) of short audio clips. The
+competition name refers to the missing-fundamental phenomenon: the fundamental
+frequency may be absent from the signal and must be inferred (e.g. from
+harmonic structure).
 
-[Plain language description of what needs to be solved. Copy from competition page + your own understanding. Be specific about inputs, outputs, and constraints.]
+## Data
 
-## Evaluation Metric
-- **Metric**: [e.g., normalized_area, RMSE, F1, AUC-ROC]
-- **Direction**: [minimize | maximize]
-- **CV Variance Threshold**: [e.g., 0.005 — triggers overfitting warning if CV std exceeds this]
+- `shared/data/kaggle_dataset-20251026T143755Z-1-001/kaggle_dataset/`
+- `train/` — 2330 mono WAVs, 44100 Hz, ~6.6 s each; labels in `train.csv` (Pitch_ID, Path)
+- `test/` — 583 WAVs; `test.csv` lists paths
+- 82 classes, imbalanced (3 to 56 samples per class)
+- `starter-notebook-v3-missing-puzzle.ipynb` at data root — do NOT open before PREDICTION.md is complete (C2)
 
-## Data Description
-- **Files**: [list each data file and what it contains]
-- **Size**: [approximate total size]
-- **Format**: [CSV, images, text, parquet, etc.]
-- **Key Features**: [important columns/fields that matter for the solution]
+## Evaluation
 
-## Submission Format
-- **File**: [e.g., submission.csv]
-- **Columns**: [required columns and their types]
-- **Rows**: [how many, what they represent]
-- **Example**:
-```
-id,prediction
-1,0.5
-2,0.3
-```
+- **Metric**: accuracy (inferred from leaderboard scores in [0,1]; top ~0.983) — verify on the overview page after predictions are registered
+- **Direction**: maximize
+- **CV variance threshold**: 0.02
 
-## Known Constraints
-[Hardware limits, time limits, external data rules, specific competition rules. Include anything from the rules page that could affect strategy.]
+## Submission format
 
-## Initial Research
-[Approaches found in discussions, papers, similar past competitions. Each agent should add their findings here as they research.]
+CSV with header `Path,Pitch_ID` — one row per test WAV (see sample_submission.csv), 583 rows.
 
-## Baseline Scores
-- **Naive baseline**: [score of simplest possible submission, e.g., all zeros, mean prediction]
-- **Public best**: [current #1 on public LB if known]
-- **Medal thresholds**: [bronze/silver/gold cutoffs if known or estimable]
+## Known constraints
+
+- Leaderboard submissions are dated 2025-10; the competition may already be
+  closed (late submission mode). Treat as a gym-grade run either way: full
+  pipeline, honest scoring.
+- ML Python lives in the venv: `~/ml/bin/python` (numpy/pandas/sklearn/LightGBM/XGBoost/Optuna, scipy via sklearn). No librosa yet — `~/ml/bin/pip install` as needed, or use scipy.signal + wave.
+- Heavy training can ship to Kaggle compute: `python3 tools/kkernel.py run --script ... --competition missing-fundamental-puzzle`
