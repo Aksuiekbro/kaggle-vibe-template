@@ -17,6 +17,23 @@ During active multi-agent runs, do not let multiple agents edit this file concur
 
 ## Key Decisions
 
+### Coordinator note — 2026-07-06 (measured, act on this)
+
+- CV-vs-public-LB gap is ~0.10 and **delta sign agreement is 54%** over 14
+  submissions (`verifiers.py cv-lb --agent gemini`): incremental CV gains no
+  longer predict LB gains. Cause is the train/test shift claude quantified
+  (adversarial AUC 0.973, exp_003; loudness/noise-floor differences, exp_004).
+- STOP ensemble-laddering on unchanged validation (gemini: 24-model blend gained
+  nothing on LB). More blend != more score in this regime.
+- PRIORITY 1: shift-aware validation — adversarially-weighted CV or a holdout
+  reweighted toward test-like clips (use exp_003 classifier probabilities).
+  Do not trust any CV delta until sign agreement > 70%.
+- PRIORITY 2: features that survive the shift — per-clip normalization
+  (exp_004, +0.034 probe) and harmonic-evidence pitch-grid features (exp_005,
+  matches the pre-registered prediction).
+- Submission cadence: max 2 per agent per day until the proxy is fixed.
+  kaggle_score (public) is now synced into the registry — check it.
+
 [Record strategic decisions made during the competition. Why we chose approach X over Y.]
 
 ## Research Findings

@@ -1,10 +1,390 @@
 {
   "competition": "missing-fundamental-puzzle",
-  "submissions": [],
+  "submissions": [
+    {
+      "id": "sub_001",
+      "agent": "gemini",
+      "timestamp": "2026-07-05T09:00:23.299644+00:00",
+      "file": "agents/gemini/submissions/submission_lgb_opt.csv",
+      "local_score": null,
+      "kaggle_score": null,
+      "cv_std": 0,
+      "flags": [],
+      "method": "unknown",
+      "description": "LGBM baseline on optimized spectral + HPS + ACF features (5-Fold CV)",
+      "provenance": {
+        "type": "original",
+        "based_on": null,
+        "approach": "unknown"
+      },
+      "status": "rejected"
+    },
+    {
+      "id": "sub_002",
+      "agent": "gemini",
+      "timestamp": "2026-07-05T09:00:30.987891+00:00",
+      "file": "agents/gemini/submissions/submission_lgb_opt.csv",
+      "local_score": 0.29569999999999996,
+      "kaggle_score": 0.31609,
+      "cv_std": 0.016202098629498587,
+      "flags": [
+        "DUPLICATE_SUBMISSION:sub_001"
+      ],
+      "method": "cli",
+      "description": "LGBM baseline on optimized spectral + HPS + ACF features (5-Fold CV)",
+      "provenance": {
+        "type": "original",
+        "based_on": null,
+        "approach": "unknown"
+      },
+      "status": "submitted"
+    },
+    {
+      "id": "sub_003",
+      "agent": "claude",
+      "timestamp": "2026-07-05T10:59:27.160105+00:00",
+      "file": "agents/claude/workspace/kernel_output/submission.csv",
+      "local_score": 0.5681148748159058,
+      "kaggle_score": null,
+      "cv_std": 0.20671945450495358,
+      "flags": [
+        "HIGH_VARIANCE"
+      ],
+      "method": "cli",
+      "description": "Claude exp_002 Kaggle full MFCC spectral LightGBM baseline; OOF 0.5682 but high fold variance and adv shift",
+      "provenance": {
+        "type": "original",
+        "based_on": null,
+        "approach": "mfcc_spectral_lgbm_kaggle_full"
+      },
+      "status": "failed"
+    },
+    {
+      "id": "sub_004",
+      "agent": "claude",
+      "timestamp": "2026-07-05T11:00:22.362840+00:00",
+      "file": "agents/claude/workspace/kernel_output/submission.csv",
+      "local_score": 0.5681148748159058,
+      "kaggle_score": 0.55172,
+      "cv_std": 0.20671945450495358,
+      "flags": [
+        "HIGH_VARIANCE",
+        "DUPLICATE_SUBMISSION:sub_003"
+      ],
+      "method": "cli",
+      "description": "Claude exp_002 Kaggle full MFCC spectral LightGBM baseline; OOF 0.5682 but high fold variance and adv shift",
+      "provenance": {
+        "type": "original",
+        "based_on": null,
+        "approach": "mfcc_spectral_lgbm_kaggle_full"
+      },
+      "status": "submitted",
+      "private_score": 0.55745,
+      "kaggle_ref": "54359681"
+    },
+    {
+      "id": "sub_005",
+      "agent": "gemini",
+      "timestamp": "2026-07-05T13:24:17.130126+00:00",
+      "file": "agents/gemini/submissions/submission_exp002.csv",
+      "local_score": 0.7377682379999999,
+      "kaggle_score": 0.60919,
+      "private_score": 0.66503,
+      "cv_std": 0.017242325820965583,
+      "flags": [],
+      "method": "cli",
+      "description": "LightGBM tuned with Optuna (5-Fold CV)",
+      "provenance": {
+        "type": "original",
+        "based_on": null,
+        "approach": "tuned_lgbm_baseline_feats"
+      },
+      "status": "submitted"
+    },
+    {
+      "id": "sub_006",
+      "agent": "gemini",
+      "timestamp": "2026-07-05T16:24:24.682992+00:00",
+      "file": "agents/gemini/submissions/submission_ensemble.csv",
+      "local_score": 0.7618,
+      "kaggle_score": 0.64942,
+      "private_score": 0.66259,
+      "cv_std": 0.01754776339024437,
+      "flags": [],
+      "method": "cli",
+      "description": "Ensemble of Baseline LGBM and Combined-Clean LGBM (weight 0.5)",
+      "provenance": {
+        "type": "original",
+        "based_on": null,
+        "approach": "ensemble_lgbm_baseline_clean"
+      },
+      "status": "submitted"
+    },
+    {
+      "id": "sub_007",
+      "agent": "gemini",
+      "timestamp": "2026-07-05T20:51:01.614454+00:00",
+      "file": "agents/gemini/submissions/submission_mlp.csv",
+      "local_score": 0.86954,
+      "kaggle_score": 0.62643,
+      "cv_std": 0.005637233363982731,
+      "flags": [],
+      "method": "cli",
+      "description": "5-fold CV MLPClassifier on combined clean features",
+      "provenance": {
+        "type": "original",
+        "based_on": null,
+        "approach": "mlp_on_combined_clean"
+      },
+      "status": "submitted"
+    },
+    {
+      "id": "sub_008",
+      "agent": "gemini",
+      "timestamp": "2026-07-05T21:05:17.218998+00:00",
+      "file": "agents/gemini/submissions/submission_ensemble_mlp_lgb.csv",
+      "local_score": 0.8811,
+      "kaggle_score": 0.68965,
+      "cv_std": 0.008196096631934024,
+      "flags": [],
+      "method": "cli",
+      "description": "Ensemble of MLP (0.62) and LightGBM (0.38) on clean concatenated features",
+      "provenance": {
+        "type": "original",
+        "based_on": null,
+        "approach": "ensemble_mlp_lgb"
+      },
+      "status": "submitted"
+    },
+    {
+      "id": "sub_009",
+      "agent": "gemini",
+      "timestamp": "2026-07-05T21:08:10.498721+00:00",
+      "file": "agents/gemini/submissions/submission_ensemble_ms_mlp_lgb.csv",
+      "local_score": 0.9124459999999999,
+      "kaggle_score": 0.68965,
+      "cv_std": 0.00613000685154592,
+      "flags": [],
+      "method": "cli",
+      "description": "Ensemble of Multi-Seed MLP (0.72) and LightGBM (0.28) on clean concatenated features",
+      "provenance": {
+        "type": "original",
+        "based_on": null,
+        "approach": "ensemble_ms_mlp_lgb"
+      },
+      "status": "submitted"
+    },
+    {
+      "id": "sub_010",
+      "agent": "gemini",
+      "timestamp": "2026-07-05T21:47:32.117394+00:00",
+      "file": "agents/gemini/submissions/submission_ensemble_grid.csv",
+      "local_score": 0.922316,
+      "kaggle_score": 0.63218,
+      "cv_std": 0.015908974322689687,
+      "flags": [],
+      "method": "cli",
+      "description": "Ensemble of Multi-Seed MLP and LGBM on concatenated clean and grid features",
+      "provenance": {
+        "type": "original",
+        "based_on": null,
+        "approach": "ensemble_grid_features"
+      },
+      "status": "submitted"
+    },
+    {
+      "id": "sub_011",
+      "agent": "gemini",
+      "timestamp": "2026-07-05T22:45:05.876204+00:00",
+      "file": "agents/gemini/submissions/submission_ensemble_enhanced_grid.csv",
+      "local_score": 0.93262,
+      "kaggle_score": 0.63793,
+      "cv_std": 0.018541470276113487,
+      "flags": [],
+      "method": "cli",
+      "description": "Ensemble of Multi-Seed MLP (0.69) and LGBM (0.31) on concatenated clean and enhanced grid features (1284 features)",
+      "provenance": {
+        "type": "original",
+        "based_on": null,
+        "approach": "ensemble_enhanced_grid_features"
+      },
+      "status": "submitted"
+    },
+    {
+      "id": "sub_012",
+      "agent": "gemini",
+      "timestamp": "2026-07-05T23:10:14.923964+00:00",
+      "file": "agents/gemini/submissions/submission_ensemble_mlp_svm_lgb.csv",
+      "local_score": 0.9347619999999999,
+      "kaggle_score": 0.66091,
+      "cv_std": 0.015686541237634247,
+      "flags": [],
+      "method": "cli",
+      "description": "Ensemble of Multi-Seed MLP (0.20), Linear SVM (0.74), and LightGBM (0.06) on concatenated features",
+      "provenance": {
+        "type": "original",
+        "based_on": null,
+        "approach": "ensemble_mlp_svm_lgb"
+      },
+      "status": "submitted"
+    },
+    {
+      "id": "sub_013",
+      "agent": "gemini",
+      "timestamp": "2026-07-05T23:35:04.034249+00:00",
+      "file": "agents/gemini/submissions/submission_ms_mlp_pca512.csv",
+      "local_score": null,
+      "kaggle_score": null,
+      "cv_std": 0,
+      "flags": [],
+      "method": "unknown",
+      "description": "Multi-seed MLP classifier with PCA=512 on concatenated handcrafted and Claude features + enhanced grid features",
+      "provenance": {
+        "type": "original",
+        "based_on": null,
+        "approach": "unknown"
+      },
+      "status": "rejected"
+    },
+    {
+      "id": "sub_014",
+      "agent": "gemini",
+      "timestamp": "2026-07-05T23:35:10.441284+00:00",
+      "file": "agents/gemini/submissions/submission_ms_mlp_pca512.csv",
+      "local_score": 0.954504,
+      "kaggle_score": 0.72988,
+      "cv_std": 0.00904329276314769,
+      "flags": [
+        "DUPLICATE_SUBMISSION:sub_013"
+      ],
+      "method": "cli",
+      "description": "Multi-seed MLP classifier with PCA=512 on concatenated features",
+      "provenance": {
+        "type": "original",
+        "based_on": null,
+        "approach": "PCA-MLP"
+      },
+      "status": "submitted"
+    },
+    {
+      "id": "sub_015",
+      "agent": "gemini",
+      "timestamp": "2026-07-05T23:49:38.291490+00:00",
+      "file": "agents/gemini/submissions/submission_ensemble_all.csv",
+      "local_score": 0.955792,
+      "kaggle_score": 0.72413,
+      "cv_std": 0.011720645716000443,
+      "flags": [],
+      "method": "cli",
+      "description": "Optimized ensemble blend of PCA-MLP (5 seeds), PCA-SVM (linear), Raw MLP (5 seeds), Raw LGBM, and Raw SVM models",
+      "provenance": {
+        "type": "derivative",
+        "based_on": "sub_014",
+        "approach": "ensemble_all"
+      },
+      "status": "submitted"
+    },
+    {
+      "id": "sub_016",
+      "agent": "gemini",
+      "timestamp": "2026-07-06T00:25:15.080864+00:00",
+      "file": "agents/gemini/submissions/submission_norm_blend.csv",
+      "local_score": null,
+      "kaggle_score": null,
+      "cv_std": 0,
+      "flags": [],
+      "method": "unknown",
+      "description": "RMS-normalized features, cepstrum grid features, and optimized blend of PCA-MLP, PCA-SVM, Raw MLP, and LightGBM",
+      "provenance": {
+        "type": "original",
+        "based_on": null,
+        "approach": "unknown"
+      },
+      "status": "rejected"
+    },
+    {
+      "id": "sub_017",
+      "agent": "gemini",
+      "timestamp": "2026-07-06T00:25:30.469697+00:00",
+      "file": "agents/gemini/submissions/submission_norm_blend.csv",
+      "local_score": 0.965236,
+      "kaggle_score": 0.85632,
+      "cv_std": 0.006839645020028436,
+      "flags": [
+        "DUPLICATE_SUBMISSION:sub_016"
+      ],
+      "method": "cli",
+      "description": "Ensemble blend of model probabilities on RMS-normalized features",
+      "provenance": {
+        "type": "original",
+        "based_on": null,
+        "approach": "ensemble_norm_features"
+      },
+      "status": "submitted"
+    },
+    {
+      "id": "sub_018",
+      "agent": "gemini",
+      "timestamp": "2026-07-06T01:35:08.480676+00:00",
+      "file": "agents/gemini/submissions/submission_norm_blend_v3.csv",
+      "local_score": 0.968242,
+      "kaggle_score": 0.82758,
+      "cv_std": 0.008519538485152807,
+      "flags": [],
+      "method": "cli",
+      "description": "6-model optimized blend on V1 normalized features adding PCA-MLP(256-256-128) and Raw-MLP(512-256-128)",
+      "provenance": {
+        "type": "original",
+        "based_on": null,
+        "approach": "ensemble_norm_blend_v3"
+      },
+      "status": "submitted"
+    },
+    {
+      "id": "sub_019",
+      "agent": "gemini",
+      "timestamp": "2026-07-06T02:19:06.571237+00:00",
+      "file": "agents/gemini/submissions/submission_norm_blend_v4_hybrid.csv",
+      "local_score": 0.968238,
+      "kaggle_score": 0.85632,
+      "cv_std": 0.010281699081377549,
+      "flags": [],
+      "method": "cli",
+      "description": "Hybrid ensemble blending MLPs on baseline features and LGBM on explicit pitch features",
+      "provenance": {
+        "type": "original",
+        "based_on": null,
+        "approach": "hybrid-ensemble-pitch-baseline"
+      },
+      "status": "submitted"
+    }
+  ],
   "best_scores": {
-    "claude": null,
+    "claude": {
+      "id": "sub_004",
+      "kaggle_score": 0.55172,
+      "local_score": 0.5681148748159058,
+      "private_score": 0.55745
+    },
     "codex": null,
-    "gemini": null
+    "gemini": {
+      "id": "sub_018",
+      "kaggle_score": null,
+      "local_score": 0.968242
+    }
   },
-  "daily_counts": {}
+  "daily_counts": {
+    "2026-07-05": {
+      "claude": 2,
+      "codex": 0,
+      "gemini": 13,
+      "total": 15
+    },
+    "2026-07-06": {
+      "claude": 0,
+      "codex": 0,
+      "gemini": 4,
+      "total": 4
+    }
+  }
 }
