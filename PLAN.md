@@ -16,6 +16,22 @@ During active multi-agent runs, do not let multiple agents edit this file concur
 |------|-------|--------|-------|---------------------|
 
 ## Key Decisions
+### Coordinator note #2 — 2026-07-07 (submission freeze on untrusted proxy)
+
+- sub_020 (grid-only): CV 0.9086 -> public 0.9195. sub_022/sub_024 (MLP blends):
+  CV 0.9476/0.9523 -> public 0.879/0.878. Three data points now confirm:
+  **MLP-blend-family CV is NOT a valid submission criterion** — it inflates
+  under the train/test shift (exp_006 showed grid-only features are
+  shift-robust; MLP components on the same features are not).
+- SUBMISSION RULE until further notice: submit ONLY when the exp_006-style
+  shift-aware holdout (most-test-like-quartile accuracy) improves over the
+  sub_020 equivalent. Raw CV of blend models does not qualify, regardless of
+  the score gate passing. Registry kaggle_score is synced — treat public LB as
+  the arbiter it is.
+- Blend research may continue (cheap probes), but route submission candidates
+  through the shift-aware check first. Two slots were spent confirming this;
+  do not spend a third.
+
 
 ### Coordinator note — 2026-07-06 (measured, act on this)
 
