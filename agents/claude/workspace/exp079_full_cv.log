@@ -1,0 +1,18 @@
+adversarial AUC (grid features): 0.9724 (67s)
+fold 0 done (978s): aug_acc=0.9498 scat_acc=0.9498
+fold 1 done (932s): aug_acc=0.9498 scat_acc=0.9485
+fold 2 done (974s): aug_acc=0.9394 scat_acc=0.9407
+
+=== exp_079: proba-blend of grid+aug (XGB) and grid+scattering (XGB) ===
+grid+aug alone: plain=0.9464 weighted=0.8916 topq=0.9520 (n_topq=583)
+grid+scattering alone: plain=0.9464 weighted=0.8834 topq=0.9537 (n_topq=583)
+blend(w_aug=0.3): plain=0.9498 weighted=0.8794 topq=0.9520 (n_topq=583)
+blend(w_aug=0.4): plain=0.9494 weighted=0.8925 topq=0.9537 (n_topq=583)
+blend(w_aug=0.5): plain=0.9502 weighted=0.8925 topq=0.9537 (n_topq=583)
+blend(w_aug=0.6): plain=0.9494 weighted=0.8925 topq=0.9537 (n_topq=583)
+blend(w_aug=0.7): plain=0.9485 weighted=0.8797 topq=0.9520 (n_topq=583)
+
+best blend weight (w_aug): 0.4, topq=0.9537
+delta vs grid+aug alone:        +0.0017
+delta vs grid+scattering alone: +0.0000  <- coordinator's gating metric
+total time: 2951s

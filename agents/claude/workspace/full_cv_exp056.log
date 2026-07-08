@@ -1,0 +1,15 @@
+rare classes (<10 samples): 14/82
+adversarial AUC (grid features, train vs test): 0.9724 (90s)
+fold 0 done (767s), 434/583 real test rows pseudo-labeled: base_acc=0.9498 pl_acc=0.9511
+fold 1 done (679s), 432/583 real test rows pseudo-labeled: base_acc=0.9498 pl_acc=0.9524
+fold 2 done (714s), 443/583 real test rows pseudo-labeled: base_acc=0.9394 pl_acc=0.9381
+
+=== exp_056 full CV: XGBoost+aug baseline vs +pseudo-label(real test, thresh=0.75) ===
+XGBoost + more_oversample augment (baseline): plain=0.9464 weighted=0.8916 topq=0.9520 (n_topq=583)
+XGBoost + more_oversample augment + pseudo-label(0.75): plain=0.9472 weighted=0.9103 topq=0.9588 (n_topq=583)
+
+delta plain:    +0.0009
+delta weighted: +0.0187
+delta topq:     +0.0069  <- coordinator's gating metric
+delta topq vs exp_051/052 (thresh=0.85 full CV, +0.0017): compare directly once landed
+total time: 2250s

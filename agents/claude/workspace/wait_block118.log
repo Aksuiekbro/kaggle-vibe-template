@@ -1,0 +1,31 @@
+=== exp079 proba blend full CV (finished) ===
+adversarial AUC (grid features): 0.9724 (67s)
+fold 0 done (978s): aug_acc=0.9498 scat_acc=0.9498
+fold 1 done (932s): aug_acc=0.9498 scat_acc=0.9485
+fold 2 done (974s): aug_acc=0.9394 scat_acc=0.9407
+
+=== exp_079: proba-blend of grid+aug (XGB) and grid+scattering (XGB) ===
+grid+aug alone: plain=0.9464 weighted=0.8916 topq=0.9520 (n_topq=583)
+grid+scattering alone: plain=0.9464 weighted=0.8834 topq=0.9537 (n_topq=583)
+blend(w_aug=0.3): plain=0.9498 weighted=0.8794 topq=0.9520 (n_topq=583)
+blend(w_aug=0.4): plain=0.9494 weighted=0.8925 topq=0.9537 (n_topq=583)
+blend(w_aug=0.5): plain=0.9502 weighted=0.8925 topq=0.9537 (n_topq=583)
+blend(w_aug=0.6): plain=0.9494 weighted=0.8925 topq=0.9537 (n_topq=583)
+blend(w_aug=0.7): plain=0.9485 weighted=0.8797 topq=0.9520 (n_topq=583)
+
+best blend weight (w_aug): 0.4, topq=0.9537
+delta vs grid+aug alone:        +0.0017
+delta vs grid+scattering alone: +0.0000  <- coordinator's gating metric
+total time: 2951s
+=== exp075 extract/full CV status (may still be running) ===
+train_scattering16k_features.parquet: 1400/2330 (2731.4s)
+train_scattering16k_features.parquet: 1450/2330 (2838.4s)
+train_scattering16k_features.parquet: 1500/2330 (2943.5s)
+train_scattering16k_features.parquet: 1550/2330 (3044.1s)
+train_scattering16k_features.parquet: 1600/2330 (3148.0s)
+train_scattering16k_features.parquet: 1650/2330 (3250.9s)
+train_scattering16k_features.parquet: 1700/2330 (3352.1s)
+train_scattering16k_features.parquet: 1750/2330 (3462.0s)
+train_scattering16k_features.parquet: 1800/2330 (3561.2s)
+train_scattering16k_features.parquet: 1850/2330 (3659.2s)
+DONE_BLOCK118_WAIT

@@ -1,0 +1,14 @@
+rare classes (<10 samples): 14/82
+adversarial AUC (grid features, train vs test): 0.9724 (63s)
+fold 0 done (926s): xgb_acc=0.9498 lgbm_mdl20_acc=0.9395
+fold 1 done (888s): xgb_acc=0.9498 lgbm_mdl20_acc=0.9485
+fold 2 done (884s): xgb_acc=0.9394 lgbm_mdl20_acc=0.9240
+
+=== exp_068 full CV: XGBoost+aug (banked) vs LGBM min_data_in_leaf=20 +aug ===
+XGBoost + more_oversample (banked baseline): plain=0.9464 weighted=0.8916 topq=0.9520 (n_topq=583)
+LGBM min_data_in_leaf=20 + more_oversample: plain=0.9373 weighted=0.8501 topq=0.9468 (n_topq=583)
+
+delta plain:    -0.0090
+delta weighted: -0.0415
+delta topq:     -0.0051  <- coordinator's gating metric
+total time: 2760s

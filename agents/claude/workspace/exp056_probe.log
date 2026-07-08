@@ -1,0 +1,20 @@
+rare classes (<10 samples): 14/82
+adversarial AUC: 0.9724 (83s)
+train: 2263 rows (399 augmented)
+
+baseline (no pseudo-label, reference): plain=0.9442 weighted=0.8223 topq=0.9573
+exp_052 thresh=0.85 (single-round, reference): plain=0.9485 weighted=0.8383 topq=0.9658  <- comparison target (round_2 below should reproduce this: round_1 is the no-pseudo-label sanity check, round_2 is the first PL round, round_3+ is new)
+
+=== exp_056: 3-round iterative self-training, thresh=0.85 per round (round_1=no-PL baseline check, round_2=single-round PL, round_3+=iterative/new) ===
+round_1: plain=0.9442 weighted=0.8223 topq=0.9573 (n_topq=117)
+round_1 delta topq vs no-pl: -0.0000  <- coordinator's gating metric (636s elapsed)
+round_1->  423 newly-confident test rows added (cumulative will be 423/583)
+round_2: plain=0.9485 weighted=0.8383 topq=0.9658 (n_topq=117)
+round_2 delta topq vs no-pl: +0.0085  <- coordinator's gating metric (1006s elapsed)
+round_2 delta topq vs round_1: +0.0085
+round_2->  38 newly-confident test rows added (cumulative will be 461/583)
+round_3: plain=0.9442 weighted=0.8223 topq=0.9573 (n_topq=117)
+round_3 delta topq vs no-pl: -0.0000  <- coordinator's gating metric (1350s elapsed)
+round_3 delta topq vs round_2: -0.0085
+
+total time: 1350s

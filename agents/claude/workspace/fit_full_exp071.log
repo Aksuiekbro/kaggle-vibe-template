@@ -1,0 +1,6 @@
+train rows: 2330, classes: 82
+rare classes (<10): 14/82, augmented rows added: 511 (290s)
+stage-1 fit done (322s)
+pseudo-labeled 531/583 real test rows at conf>=0.5
+stage-2 fit+predict done (383s)
+wrote /root/kaggle-vibe-template/agents/claude/workspace/kernel_output_exp005/submission_exp071_xgb_augmented_pseudolabel050.csv, 583 rows (995s total)

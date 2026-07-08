@@ -1,0 +1,6 @@
+rare classes (<10 samples): 14/82
+augmented 73 rare rows -> 292 extra rows (172s)
+train rows after augmentation: 2622 (was 2330)
+LGBM fit+predict done (576s)
+MLP fit+predict done (13s)
+wrote /root/kaggle-vibe-template/agents/claude/workspace/kernel_output_exp005/submission_exp025_augmented_blend.csv, 583 rows (761s total)

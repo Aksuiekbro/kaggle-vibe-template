@@ -1,0 +1,13 @@
+adversarial AUC (grid features, train vs test): 0.9724 (80s)
+fold 0 done (753s): lgb_acc=0.9189 xgb_acc=0.9459
+fold 1 done (749s): lgb_acc=0.9176 xgb_acc=0.9447
+fold 2 done (705s): lgb_acc=0.8905 xgb_acc=0.9317
+
+=== exp_040 full CV: LGBM-alone vs XGBoost-alone, grid features, no augment ===
+LGBM-alone: plain=0.9090 weighted=0.8436 topq=0.9177 (n_topq=583)
+XGBoost-alone: plain=0.9408 weighted=0.8602 topq=0.9434 (n_topq=583)
+
+delta plain:    +0.0318
+delta weighted: +0.0165
+delta topq:     +0.0257  <- coordinator's gating metric
+total time: 2288s

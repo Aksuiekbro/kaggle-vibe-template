@@ -1,0 +1,12 @@
+/root/ml/lib/python3.12/site-packages/sklearn/utils/validation.py:2827: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/root/ml/lib/python3.12/site-packages/sklearn/utils/validation.py:2827: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/root/ml/lib/python3.12/site-packages/sklearn/utils/validation.py:2827: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/root/ml/lib/python3.12/site-packages/sklearn/utils/validation.py:2827: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+grid-harmonic only (reference): n=291 classes=65 n_feats=405 OOF acc=0.5876
+grid + oct_ratio: n=291 classes=65 n_feats=486 OOF acc=0.6048
+
+delta (grid+oct_ratio - grid_only): +0.0172

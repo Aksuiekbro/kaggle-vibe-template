@@ -1,0 +1,26 @@
+/root/ml/lib/python3.12/site-packages/sklearn/utils/validation.py:2827: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+fold 0: LGBM acc=0.9189 (454s), MLP acc=0.9292 (1s)
+/root/ml/lib/python3.12/site-packages/sklearn/utils/validation.py:2827: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+fold 1: LGBM acc=0.9176 (452s), MLP acc=0.9395 (5s)
+/root/ml/lib/python3.12/site-packages/sklearn/utils/validation.py:2827: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+fold 2: LGBM acc=0.8905 (497s), MLP acc=0.9175 (5s)
+blend w_lgb=0.0: acc=0.9288
+blend w_lgb=0.1: acc=0.9348
+blend w_lgb=0.2: acc=0.9416
+blend w_lgb=0.3: acc=0.9451
+blend w_lgb=0.4: acc=0.9476
+blend w_lgb=0.5: acc=0.9356
+blend w_lgb=0.6: acc=0.9292
+blend w_lgb=0.7: acc=0.9245
+blend w_lgb=0.8: acc=0.9172
+blend w_lgb=0.9: acc=0.9129
+blend w_lgb=1.0: acc=0.9090
+
+LGBM-only OOF acc: 0.9090
+MLP-only OOF acc:  0.9288
+Best blend: w_lgb=0.4, acc=0.9476
+delta (best_blend - max(lgb,mlp)): +0.0189
+total time: 1414s

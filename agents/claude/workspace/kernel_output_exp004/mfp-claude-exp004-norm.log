@@ -1,0 +1,48 @@
+[{"stream_name":"stdout","time":13.931568219,"data":"discovered DATA_ROOT=/kaggle/input/competitions/missing-fundamental-puzzle/kaggle_dataset-20251026T143755Z-1-001/\n"}
+,{"stream_name":"stdout","time":13.931623942,"data":"N_WORKERS=4\n"}
+,{"stream_name":"stdout","time":183.980095712,"data":"train_features_norm.parquet: 200/2330 (170.0s)\n"}
+,{"stream_name":"stdout","time":310.379671124,"data":"train_features_norm.parquet: 400/2330 (296.4s)\n"}
+,{"stream_name":"stdout","time":439.232867231,"data":"train_features_norm.parquet: 600/2330 (425.3s)\n"}
+,{"stream_name":"stdout","time":570.971478611,"data":"train_features_norm.parquet: 800/2330 (557.0s)\n"}
+,{"stream_name":"stdout","time":697.660637135,"data":"train_features_norm.parquet: 1000/2330 (683.7s)\n"}
+,{"stream_name":"stdout","time":829.9839568,"data":"train_features_norm.parquet: 1200/2330 (816.0s)\n"}
+,{"stream_name":"stdout","time":959.626882728,"data":"train_features_norm.parquet: 1400/2330 (945.7s)\n"}
+,{"stream_name":"stdout","time":1091.331712936,"data":"train_features_norm.parquet: 1600/2330 (1077.4s)\n"}
+,{"stream_name":"stdout","time":1220.819854382,"data":"train_features_norm.parquet: 1800/2330 (1206.9s)\n"}
+,{"stream_name":"stdout","time":1349.369670961,"data":"train_features_norm.parquet: 2000/2330 (1335.4s)\n"}
+,{"stream_name":"stdout","time":1483.035713469,"data":"train_features_norm.parquet: 2200/2330 (1469.1s)\n"}
+,{"stream_name":"stdout","time":1563.761160045,"data":"wrote train_features_norm.parquet shape=(2330, 132) in 1549.8s\n"}
+,{"stream_name":"stdout","time":1705.113168377,"data":"test_features_norm.parquet: 200/583 (141.3s)\n"}
+,{"stream_name":"stdout","time":1836.416419061,"data":"test_features_norm.parquet: 400/583 (272.6s)\n"}
+,{"stream_name":"stdout","time":1955.34876252,"data":"wrote test_features_norm.parquet shape=(583, 131) in 391.6s\n"}
+,{"stream_name":"stdout","time":1962.611438257,"data":"exp_003-norm full adversarial AUC (vs exp_003 full 0.9984 unnormalized): 0.9983\n"}
+,{"stream_name":"stdout","time":1962.612486931,"data":"flatness_std         282\n"}
+,{"stream_name":"stdout","time":1962.612514646,"data":"zcr_std              243\n"}
+,{"stream_name":"stdout","time":1962.61251888,"data":"contrast_1_mean      162\n"}
+,{"stream_name":"stdout","time":1962.612522519,"data":"mfcc_3_mean          158\n"}
+,{"stream_name":"stdout","time":1962.612525743,"data":"spec_acf_lag10       130\n"}
+,{"stream_name":"stdout","time":1962.612528913,"data":"contrast_0_std       128\n"}
+,{"stream_name":"stdout","time":1962.612531985,"data":"contrast_2_mean      110\n"}
+,{"stream_name":"stdout","time":1962.612534998,"data":"chroma_cqt_3_mean     92\n"}
+,{"stream_name":"stdout","time":1962.612538044,"data":"mfcc_9_mean           89\n"}
+,{"stream_name":"stdout","time":1962.612541324,"data":"mfcc_5_mean           84\n"}
+,{"stream_name":"stdout","time":1962.612544382,"data":"mfcc_2_std            73\n"}
+,{"stream_name":"stdout","time":1962.612547469,"data":"mfcc_19_mean          72\n"}
+,{"stream_name":"stdout","time":1962.612550462,"data":"contrast_3_mean       70\n"}
+,{"stream_name":"stdout","time":1962.61255418,"data":"mfcc_2_mean           70\n"}
+,{"stream_name":"stdout","time":1962.612559203,"data":"mfcc_6_mean           65\n"}
+,{"stream_name":"stdout","time":1962.612563782,"data":"dtype: int32\n"}
+,{"stream_name":"stdout","time":1962.619015644,"data":"n=2330 classes=82 min_per_class=3 max_per_class=56\n"}
+,{"stream_name":"stdout","time":2004.218580872,"data":"fold 0: acc=0.7207 (n_va=777)\n"}
+,{"stream_name":"stdout","time":2045.517498943,"data":"fold 1: acc=0.6937 (n_va=777)\n"}
+,{"stream_name":"stdout","time":2086.37857318,"data":"fold 2: acc=0.6856 (n_va=776)\n"}
+,{"stream_name":"stdout","time":2086.37864791,"data":"exp_002-norm full OOF accuracy (vs exp_002 full 0.5682 unnormalized): 0.7000\n"}
+,{"stream_name":"stdout","time":2086.378654335,"data":"fold mean=0.7000 std=0.0150\n"}
+,{"stream_name":"stdout","time":2107.925472852,"data":"DONE\n"}
+,{"stream_name":"stderr","time":2111.770927025,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":2111.770970859,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":2112.224615442,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":2112.224650514,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":2113.220144269,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":2115.163238695,"data":"[NbConvertApp] Writing 324655 bytes to __results__.html\n"}
+]

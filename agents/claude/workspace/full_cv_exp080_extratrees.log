@@ -1,0 +1,13 @@
+adversarial AUC: 0.9724 n_feats=405 (88s)
+fold 0 done (273s): XGBoost-alone_acc=0.9459 ExtraTrees-alone_acc=0.9472
+fold 1 done (272s): XGBoost-alone_acc=0.9447 ExtraTrees-alone_acc=0.9511
+fold 2 done (243s): XGBoost-alone_acc=0.9317 ExtraTrees-alone_acc=0.9317
+
+=== exp_080 full CV: ExtraTrees vs XGBoost-alone, grid features ===
+XGBoost-alone: plain=0.9408 weighted=0.8602 topq=0.9434 (n_topq=583)
+ExtraTrees-alone: plain=0.9433 weighted=0.8817 topq=0.9451 (n_topq=583)
+
+delta plain:    +0.0026
+delta weighted: +0.0215
+delta topq:     +0.0017  <- coordinator's gating metric
+total time: 875s

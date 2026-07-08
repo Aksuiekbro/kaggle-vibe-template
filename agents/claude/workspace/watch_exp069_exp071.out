@@ -1,0 +1,35 @@
+both jobs finished
+=== exp069_probe.log ===
+rare classes (<10 samples): 14/82
+adversarial AUC: 0.9724 (91s)
+train: 2263 rows (399 augmented)
+
+baseline (reference, exp_048/042 XGBoost+aug, same split): plain=0.9442 weighted=0.8223 topq=0.9573
+lgbm_min_data_in_leaf=2: plain=0.9099 weighted=0.8155 topq=0.9487 rare_acc=0.6875 (n_topq=117, n_rare=16)
+  delta topq vs XGBoost+aug baseline: -0.0086  <- coordinator's gating metric (fit 597s)
+lgbm_min_data_in_leaf=5: plain=0.9120 weighted=0.8999 topq=0.9487 rare_acc=0.8125 (n_topq=117, n_rare=16)
+  delta topq vs XGBoost+aug baseline: -0.0086  <- coordinator's gating metric (fit 602s)
+lgbm_min_data_in_leaf=10: plain=0.9313 weighted=0.8790 topq=0.9573 rare_acc=0.8125 (n_topq=117, n_rare=16)
+  delta topq vs XGBoost+aug baseline: -0.0000  <- coordinator's gating metric (fit 548s)
+lgbm_min_data_in_leaf=20: plain=0.9421 weighted=0.9827 topq=0.9915 rare_acc=0.9375 (n_topq=117, n_rare=16)
+  delta topq vs XGBoost+aug baseline: +0.0342  <- coordinator's gating metric (fit 596s)
+lgbm_min_data_in_leaf=30: plain=0.9421 weighted=0.9087 topq=0.9487 rare_acc=0.9375 (n_topq=117, n_rare=16)
+  delta topq vs XGBoost+aug baseline: -0.0086  <- coordinator's gating metric (fit 592s)
+lgbm_min_data_in_leaf=50: plain=0.9442 weighted=0.9027 topq=0.9573 rare_acc=0.8125 (n_topq=117, n_rare=16)
+  delta topq vs XGBoost+aug baseline: -0.0000  <- coordinator's gating metric (fit 604s)
+
+total time: 3879s
+=== exp071_probe.log ===
+rare classes (<10 samples): 14/82
+adversarial AUC: 0.9724 (87s)
+
+baseline (reference, exp_048/042 XGBoost+aug, same split): plain=0.9442 weighted=0.8223 topq=0.9573
+SMOTE synthesized 111 rows across 14 rare classes
+smote_only: plain=0.9421 weighted=0.8169 topq=0.9487 rare_acc=0.8125 (n_topq=117, n_rare=16)
+  delta topq vs XGBoost+aug baseline: -0.0086  <- coordinator's gating metric (fit 281s, n_train=1975)
+more_oversample_only (reference reproduction): plain=0.9442 weighted=0.8223 topq=0.9573 rare_acc=0.8125 (n_topq=117, n_rare=16)
+  delta topq vs XGBoost+aug baseline: -0.0000  <- coordinator's gating metric (fit 298s, n_train=2263)
+more_oversample_plus_smote (stacked): plain=0.9442 weighted=0.8172 topq=0.9487 rare_acc=0.8125 (n_topq=117, n_rare=16)
+  delta topq vs XGBoost+aug baseline: -0.0086  <- coordinator's gating metric (fit 296s, n_train=2374)
+
+total time: 1175s

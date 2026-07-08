@@ -1,0 +1,16 @@
+rare classes (<10 samples): 14/82
+adversarial AUC: 0.9724 (85s)
+train: 2263 rows (399 augmented)
+
+baseline (reference, exp_048 same split/model): plain=0.9442 weighted=0.8223 topq=0.9573
+
+=== exp_066: XGBoost regression on ordinal-encoded Pitch_ID (round+clip) ===
+
+regression fit (414s)
+raw MAE (pitch-index units, pre-round): 7.838
+ordinal_regression: plain=0.0451 weighted=0.0563 topq=0.0513 rare_acc=0.0625 (n_topq=117, n_rare=16)
+delta plain    vs exp_048-ref: -0.8991
+delta weighted vs exp_048-ref: -0.7660
+delta topq     vs exp_048-ref: -0.9060  <- coordinator's gating metric
+
+total time: 414s

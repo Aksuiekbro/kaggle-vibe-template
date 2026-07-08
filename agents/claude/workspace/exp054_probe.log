@@ -1,0 +1,28 @@
+rare classes (<10 samples): 14/82
+adversarial AUC: 0.9724 (72s), n_topq=583
+augmented 57 rare rows -> 399 synthetic rows
+baseline: plain=0.9442 weighted=0.8223 topq=0.9537 (n_topq_va=108)
+  (baseline fit+predict done in 278s)
+depth_4: plain=0.9464 weighted=0.8225 topq=0.9537 (n_topq_va=108)
+  (depth_4 fit+predict done in 252s)
+depth_8: plain=0.9442 weighted=0.8223 topq=0.9537 (n_topq_va=108)
+  (depth_8 fit+predict done in 241s)
+n_est_200: plain=0.9464 weighted=0.8225 topq=0.9537 (n_topq_va=108)
+  (n_est_200 fit+predict done in 227s)
+n_est_500: plain=0.9442 weighted=0.8223 topq=0.9537 (n_topq_va=108)
+  (n_est_500 fit+predict done in 333s)
+lr_0.03: plain=0.9464 weighted=0.8226 topq=0.9537 (n_topq_va=108)
+  (lr_0.03 fit+predict done in 419s)
+lr_0.08: plain=0.9485 weighted=0.8224 topq=0.9537 (n_topq_va=108)
+  (lr_0.08 fit+predict done in 227s)
+
+=== exp_054: XGBoost+aug hyperparameter coordinate search, full-data 80/20 holdout ===
+baseline: delta plain=+0.0000 weighted=+0.0000 topq=+0.0000
+depth_4: delta plain=+0.0021 weighted=+0.0002 topq=+0.0000
+depth_8: delta plain=+0.0000 weighted=+0.0000 topq=+0.0000
+n_est_200: delta plain=+0.0021 weighted=+0.0002 topq=+0.0000
+n_est_500: delta plain=+0.0000 weighted=+0.0000 topq=+0.0000
+lr_0.03: delta plain=+0.0021 weighted=+0.0003 topq=+0.0000
+lr_0.08: delta plain=+0.0043 weighted=+0.0001 topq=+0.0000
+
+total time: 2276s

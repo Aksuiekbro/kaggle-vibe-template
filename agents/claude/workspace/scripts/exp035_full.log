@@ -1,0 +1,13 @@
+adversarial AUC (grid features, train vs test): 0.9724 (72s)
+fold 0 done (1000s): base_acc=0.9189 oct_acc=0.9202
+fold 1 done (1022s): base_acc=0.9176 oct_acc=0.9060
+fold 2 done (1016s): base_acc=0.8905 oct_acc=0.8930
+
+=== shift-aware comparison: LGBM-alone, grid-only vs grid+oct_ratio ===
+grid-only (sub_020-equivalent): plain=0.9090 weighted=0.8436 topq=0.9177 (n_topq=583)
+grid+oct_ratio: plain=0.9064 weighted=0.8552 topq=0.9125 (n_topq=583)
+
+delta plain:   -0.0026
+delta weighted:+0.0115
+delta topq:    -0.0051  <- coordinator's gating metric
+total time: 3110s

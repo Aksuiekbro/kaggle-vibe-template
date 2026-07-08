@@ -1,0 +1,24 @@
+fold 0 seed 0: acc=0.9434 (4s)
+fold 0 seed 1: acc=0.9331 (5s)
+fold 0 seed 2: acc=0.9459 (4s)
+fold 0 seed 3: acc=0.9305 (4s)
+fold 0 seed 4: acc=0.9408 (4s)
+fold 1 seed 0: acc=0.9331 (4s)
+fold 1 seed 1: acc=0.9421 (5s)
+fold 1 seed 2: acc=0.9395 (4s)
+fold 1 seed 3: acc=0.9408 (4s)
+fold 1 seed 4: acc=0.9434 (5s)
+fold 2 seed 0: acc=0.8982 (4s)
+fold 2 seed 1: acc=0.9188 (6s)
+fold 2 seed 2: acc=0.9240 (7s)
+fold 2 seed 3: acc=0.9227 (4s)
+fold 2 seed 4: acc=0.9046 (4s)
+
+=== summary ===
+MLP single-seed OOF acc: 0.9288
+MLP 5-seed-avg OOF acc:  0.9545
+blend (single-seed MLP, w_lgb=0.4) OOF acc: 0.9476
+blend (5-seed-avg MLP, w_lgb=0.4) OOF acc:  0.9468
+delta (5-seed blend - single-seed blend): -0.0009
+delta (5-seed blend - exp_017 best 0.9476): -0.0008
+total time: 66s

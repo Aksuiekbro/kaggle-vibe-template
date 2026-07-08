@@ -1,0 +1,45 @@
+=== full_cv_exp071 done ===
+rare classes (<10 samples): 14/82
+adversarial AUC (grid features, train vs test): 0.9724 (74s)
+fold 0 base done (424s): base_acc=0.9498 | thr=0.5: 499/583 pl'd, acc=0.9575 (262s) | thr=0.4: 518/583 pl'd, acc=0.9498 (264s) | thr=0.3: 539/583 pl'd, acc=0.9524 (259s)
+fold 1 base done (377s): base_acc=0.9498 | thr=0.5: 505/583 pl'd, acc=0.9588 (265s) | thr=0.4: 522/583 pl'd, acc=0.9537 (234s) | thr=0.3: 534/583 pl'd, acc=0.9537 (253s)
+fold 2 base done (386s): base_acc=0.9394 | thr=0.5: 508/583 pl'd, acc=0.9330 (260s) | thr=0.4: 517/583 pl'd, acc=0.9317 (230s) | thr=0.3: 531/583 pl'd, acc=0.9369 (284s)
+
+=== exp_071 full CV: lower-threshold pseudo-label sweep (0.30/0.40/0.50) ===
+XGBoost + more_oversample augment (baseline, no PL): plain=0.9464 weighted=0.8916 topq=0.9520 (n_topq=583)
+XGBoost + aug + pseudo-label(thresh=0.5): plain=0.9498 weighted=0.9283 topq=0.9674 (n_topq=583)
+  delta topq vs no-pl baseline: +0.0154
+  delta topq vs thresh=0.60 full CV (+0.0137): +0.0017
+XGBoost + aug + pseudo-label(thresh=0.4): plain=0.9451 weighted=0.8987 topq=0.9623 (n_topq=583)
+  delta topq vs no-pl baseline: +0.0103
+  delta topq vs thresh=0.60 full CV (+0.0137): -0.0034
+XGBoost + aug + pseudo-label(thresh=0.3): plain=0.9476 weighted=0.9201 topq=0.9623 (n_topq=583)
+  delta topq vs no-pl baseline: +0.0103
+  delta topq vs thresh=0.60 full CV (+0.0137): -0.0034
+
+total time: 3572s
+=== extract_scattering done ===
+train_scattering_features.parquet: 2000/2330 (1936.7s)
+train_scattering_features.parquet: 2050/2330 (1985.7s)
+train_scattering_features.parquet: 2100/2330 (2034.3s)
+train_scattering_features.parquet: 2150/2330 (2080.9s)
+train_scattering_features.parquet: 2200/2330 (2130.4s)
+train_scattering_features.parquet: 2250/2330 (2179.1s)
+train_scattering_features.parquet: 2300/2330 (2230.6s)
+wrote /root/kaggle-vibe-template/agents/claude/workspace/scripts/train_scattering_features.parquet shape=(2330, 470) in 2261.4s
+test_scattering_features.parquet: 50/583 (41.4s)
+test_scattering_features.parquet: 100/583 (87.0s)
+test_scattering_features.parquet: 150/583 (131.2s)
+test_scattering_features.parquet: 200/583 (173.3s)
+test_scattering_features.parquet: 250/583 (220.9s)
+test_scattering_features.parquet: 300/583 (269.4s)
+test_scattering_features.parquet: 350/583 (311.7s)
+test_scattering_features.parquet: 400/583 (352.3s)
+test_scattering_features.parquet: 450/583 (394.2s)
+test_scattering_features.parquet: 500/583 (435.5s)
+test_scattering_features.parquet: 550/583 (478.8s)
+wrote /root/kaggle-vibe-template/agents/claude/workspace/scripts/test_scattering_features.parquet shape=(583, 469) in 505.7s
+-rw-r--r-- 1 root root  2806360 Jul  8 04:39 scripts/test_scattering_features.parquet
+-rw-r--r-- 1 root root   294092 Jul  8 03:53 scripts/test_scattering_features_probe.parquet
+-rw-r--r-- 1 root root 10663601 Jul  8 04:31 scripts/train_scattering_features.parquet
+-rw-r--r-- 1 root root   354824 Jul  8 03:53 scripts/train_scattering_features_probe.parquet

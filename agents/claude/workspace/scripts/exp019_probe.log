@@ -1,0 +1,16 @@
+split: n_train=1867 n_val=463
+/root/ml/lib/python3.12/site-packages/sklearn/utils/validation.py:2827: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+LGBM acc=0.9114 (454s)
+  MLP seed=0 acc=0.9525 (5s)
+  MLP seed=1 acc=0.9287 (4s)
+  MLP seed=2 acc=0.9417 (6s)
+  MLP seed=3 acc=0.9438 (5s)
+  MLP seed=4 acc=0.9438 (6s)
+
+=== summary ===
+MLP single-seed acc=0.9525, MLP 5-seed-avg acc=0.9633
+blend (single-seed MLP) acc=0.9525
+blend (5-seed-avg MLP) acc=0.9546
+delta (5-seed-avg blend - single-seed blend): +0.0022
+total time: 481s

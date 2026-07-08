@@ -1,0 +1,28 @@
+{
+  "cv_scores": [
+    0.8626609442060086,
+    0.8669527896995708,
+    0.869098712446352,
+    0.869098712446352,
+    0.8798283261802575
+  ],
+  "cv_mean": 0.8695278969957082,
+  "cv_std": 0.005661333029301689,
+  "best_params": {
+    "hidden_layer_sizes": [
+      256,
+      128
+    ],
+    "activation": "relu",
+    "solver": "adam",
+    "alpha": 0.01,
+    "batch_size": 128,
+    "learning_rate_init": 0.002,
+    "max_iter": 100,
+    "random_state": 42,
+    "early_stopping": true,
+    "validation_fraction": 0.1,
+    "n_iter_no_change": 8
+  },
+  "submission_file": "agents/gemini/submissions/submission_mlp.csv"
+}

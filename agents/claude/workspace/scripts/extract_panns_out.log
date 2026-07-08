@@ -1,0 +1,36 @@
+[W707 01:14:01.146563075 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W707 01:14:01.358934321 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+Checkpoint path: /root/panns_data/Cnn14_mAP=0.431.pth
+Using CPU.
+train_panns_features_probe.parquet: 50/308 (38.7s)
+train_panns_features_probe.parquet: 100/308 (78.4s)
+[W707 01:14:54.133905729 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W707 01:14:54.335886427 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W707 01:15:09.131981105 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W707 01:15:09.203979579 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W707 01:15:09.255573685 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W707 01:15:09.267445691 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W707 01:15:27.736175588 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W707 01:15:27.823117052 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W707 01:15:27.876900145 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W707 01:15:27.889340616 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+train_panns_features_probe.parquet: 150/308 (119.3s)
+[W707 01:15:49.612429987 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W707 01:15:49.691532181 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W707 01:15:49.746905584 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W707 01:15:49.758737976 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W707 01:16:06.812751312 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W707 01:16:06.880254912 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W707 01:16:06.925395355 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W707 01:16:06.936432744 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+train_panns_features_probe.parquet: 200/308 (160.1s)
+[W707 01:16:23.388824641 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W707 01:16:24.472116240 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W707 01:16:24.522818421 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W707 01:16:24.535313092 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W707 01:16:25.553314045 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+train_panns_features_probe.parquet: 250/308 (197.6s)
+[W707 01:17:28.299508444 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+[W707 01:17:29.506126538 NNPACK.cpp:56] Could not initialize NNPACK! Reason: Unsupported hardware.
+train_panns_features_probe.parquet: 300/308 (236.8s)
+wrote /root/kaggle-vibe-template/agents/claude/workspace/scripts/train_panns_features_probe.parquet shape=(308, 2050) in 243.8s

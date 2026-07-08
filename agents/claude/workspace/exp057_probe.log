@@ -1,0 +1,39 @@
+rare classes (<10 samples): 14/82
+adversarial AUC: 0.9724 (94s)
+train: 2263 rows (399 augmented)
+
+baseline (reference, exp_048 same split/model): plain=0.9442 weighted=0.8223 topq=0.9573
+
+stage-1 model fit (645s). Real test confidence percentiles: p50=0.961 p75=0.984 p90=0.992 max=0.998
+
+=== exp_057: finer confidence-threshold sweep around 0.85, XGBoost+aug+pseudo-label(real test) ===
+
+threshold 0.9: 390/583 real test rows pseudo-labeled, fit done (1014s)
+pseudolabel_thresh_0.9: plain=0.9464 weighted=0.8376 topq=0.9573 (n_topq=117)
+delta plain    vs no-pl:      +0.0022
+delta weighted vs no-pl:      +0.0153
+delta topq     vs no-pl:      -0.0000  <- coordinator's gating metric
+delta topq     vs thresh=0.85: -0.0085
+
+threshold 0.85: 423/583 real test rows pseudo-labeled, fit done (1334s)
+pseudolabel_thresh_0.85: plain=0.9485 weighted=0.8383 topq=0.9658 (n_topq=117)
+delta plain    vs no-pl:      +0.0043
+delta weighted vs no-pl:      +0.0160
+delta topq     vs no-pl:      +0.0085  <- coordinator's gating metric
+delta topq     vs thresh=0.85: +0.0000
+
+threshold 0.8: 440/583 real test rows pseudo-labeled, fit done (1638s)
+pseudolabel_thresh_0.8: plain=0.9442 weighted=0.8382 topq=0.9658 (n_topq=117)
+delta plain    vs no-pl:      +0.0000
+delta weighted vs no-pl:      +0.0159
+delta topq     vs no-pl:      +0.0085  <- coordinator's gating metric
+delta topq     vs thresh=0.85: +0.0000
+
+threshold 0.75: 462/583 real test rows pseudo-labeled, fit done (1995s)
+pseudolabel_thresh_0.75: plain=0.9528 weighted=0.8963 topq=0.9744 (n_topq=117)
+delta plain    vs no-pl:      +0.0086
+delta weighted vs no-pl:      +0.0740
+delta topq     vs no-pl:      +0.0171  <- coordinator's gating metric
+delta topq     vs thresh=0.85: +0.0086
+
+total time: 1995s

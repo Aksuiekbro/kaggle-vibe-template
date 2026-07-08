@@ -1,0 +1,14 @@
+[grid-only] adversarial AUC: 0.9724 n_feats=405 (88s)
+[grid+scattering] adversarial AUC: 0.9975 n_feats=873 (252s)
+fold 0 done (29s): grid-only_acc=0.9472 grid+scattering_acc=0.9305
+fold 1 done (27s): grid-only_acc=0.9511 grid+scattering_acc=0.9331
+fold 2 done (28s): grid-only_acc=0.9317 grid+scattering_acc=0.9149
+
+=== exp_082 full CV: ExtraTrees, grid-only vs grid+scattering ===
+grid-only: plain=0.9433 weighted=0.8817 topq=0.9451 (n_topq=583)
+grid+scattering: plain=0.9262 weighted=0.6799 topq=0.9348 (n_topq=583)
+
+delta plain:    -0.0172
+delta weighted: -0.2018
+delta topq:     -0.0103  <- coordinator's gating metric
+total time: 336s

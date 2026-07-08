@@ -1,0 +1,18 @@
+rare classes (<10 samples): 14/82
+fold 0 baseline: acc=0.9189 (462s)
+fold 0: augmented 48 rare rows -> 192 extra rows (98s)
+fold 0 augmented: acc=0.9254 (500s), total fold time 1061s
+fold 1 baseline: acc=0.9176 (445s)
+fold 1: augmented 47 rare rows -> 188 extra rows (92s)
+fold 1 augmented: acc=0.9266 (464s), total fold time 1000s
+fold 2 baseline: acc=0.8905 (472s)
+fold 2: augmented 51 rare rows -> 204 extra rows (96s)
+fold 2 augmented: acc=0.9034 (486s), total fold time 1054s
+
+=== full 3-fold CV summary ===
+baseline OOF acc=0.9090 balanced_acc=0.8413
+augmented OOF acc=0.9185 balanced_acc=0.8896
+delta acc: +0.0094
+delta balanced_acc: +0.0483
+rare-class subset acc: base=0.5342 aug=0.8219 delta=+0.2877
+total time: 3115s

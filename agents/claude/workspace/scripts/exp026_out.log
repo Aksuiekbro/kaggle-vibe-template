@@ -1,0 +1,38 @@
+/root/ml/lib/python3.12/site-packages/sklearn/utils/validation.py:2827: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/root/ml/lib/python3.12/site-packages/sklearn/utils/validation.py:2827: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/root/ml/lib/python3.12/site-packages/sklearn/utils/validation.py:2827: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/root/ml/lib/python3.12/site-packages/sklearn/utils/validation.py:2827: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/root/ml/lib/python3.12/site-packages/sklearn/utils/validation.py:2827: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+adversarial AUC (grid features, train vs test): 0.9724
+
+LGBM(aug)-only (exp_025 oof_lgb)
+  plain OOF acc:                   0.9185
+  test-likeness-weighted acc:      0.8564
+  most-test-like quartile acc:     0.9365  (n=583)
+  least-test-like quartile acc:    0.8885  (n=583)
+  gap (plain - most-test-like):    -0.0181
+
+MLP(aug)-only (exp_025 oof_mlp)
+  plain OOF acc:                   0.9300
+  test-likeness-weighted acc:      0.8351
+  most-test-like quartile acc:     0.9417  (n=583)
+  least-test-like quartile acc:    0.9057  (n=583)
+  gap (plain - most-test-like):    -0.0116
+
+LGBM(aug)+MLP(aug) blend w_lgb=0.4 (exp_025 config)
+  plain OOF acc:                   0.9524
+  test-likeness-weighted acc:      0.8739
+  most-test-like quartile acc:     0.9588  (n=583)
+  least-test-like quartile acc:    0.9348  (n=583)
+  gap (plain - most-test-like):    -0.0065
+
+=== summary ===
+gap_lgb=-0.0181  gap_mlp=-0.0116  gap_blend=-0.0065
+exp_020 reference (un-augmented blend): gap_lgb=-0.0087 gap_mlp=-0.0129 gap_blend=-0.0078
+MLP more shift-fragile than LGBM: False
+augmentation changed the gap picture materially: False

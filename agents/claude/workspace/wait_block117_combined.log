@@ -1,0 +1,32 @@
+=== both exp075 (16kHz scattering full CV) and exp080 (Q-sweep probe) finished ===
+--- exp075_full_cv.log tail ---
+[grid-only] adversarial AUC: 0.9724 n_feats=405 (75s)
+[grid+scattering-8k] adversarial AUC: 0.9975 n_feats=873 (212s)
+[grid+scattering-16k] adversarial AUC: 0.9971 n_feats=873 (357s)
+fold 0 done (1286s): grid-only_acc=0.9459 grid+scattering-8k_acc=0.9498 grid+scattering-16k_acc=0.9498
+fold 1 done (1373s): grid-only_acc=0.9447 grid+scattering-8k_acc=0.9485 grid+scattering-16k_acc=0.9472
+fold 2 done (1476s): grid-only_acc=0.9317 grid+scattering-8k_acc=0.9407 grid+scattering-16k_acc=0.9381
+
+=== exp_075 full CV: grid-only vs grid+scattering-8k vs grid+scattering-16k (all no-aug) ===
+grid-only: plain=0.9408 weighted=0.8602 topq=0.9434 (n_topq=583)
+grid+scattering-8k: plain=0.9464 weighted=0.8105 topq=0.9657 (n_topq=583)
+grid+scattering-16k: plain=0.9451 weighted=0.8260 topq=0.9605 (n_topq=583)
+
+delta topq (16k vs 8k): -0.0051  <- coordinator's gating metric
+total time: 4492s
+DONE_EXP075
+--- exp080_probe.log tail ---
+subsample: 542 train / 200 test (1s)
+dropping 7 rows from 7 singleton classes before split
+grid+scattering Q=8 (reference): n_feats=873 adv_auc=0.9896 plain=0.8209 topq=0.7353 (n=34) (271s)
+Q=4 scattering extracted for subsample (366s)
+grid+scattering Q=4: n_feats=647 adv_auc=0.9893 plain=0.8060 topq=0.7647 (n=34) (824s)
+Q=16 scattering extracted for subsample (1313s)
+grid+scattering Q=16: n_feats=1273 adv_auc=0.9847 plain=0.7985 topq=0.7059 (n=34) (2519s)
+
+=== summary (topq, vs Q=8 reference) ===
+Q=8 (reference, cached): plain=0.8209 topq=0.7353 delta_vs_Q8=+0.0000
+Q=4: plain=0.8060 topq=0.7647 delta_vs_Q8=+0.0294
+Q=16: plain=0.7985 topq=0.7059 delta_vs_Q8=-0.0294
+
+total time: 2519s

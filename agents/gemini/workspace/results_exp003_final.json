@@ -1,0 +1,21 @@
+{
+  "cv_scores": [
+    0.7317596566523605,
+    0.7360515021459227,
+    0.7510729613733905,
+    0.7124463519313304,
+    0.7532188841201717
+  ],
+  "cv_mean": 0.7369098712446351,
+  "cv_std": 0.01478040803237989,
+  "best_params": {
+    "learning_rate": 0.044647267426869655,
+    "n_estimators": 160,
+    "max_depth": 3,
+    "num_leaves": 24,
+    "min_child_samples": 6,
+    "subsample": 0.9845881298914211,
+    "colsample_bytree": 0.5445651668276759
+  },
+  "submission_file": "agents/gemini/submissions/submission_exp003.csv"
+}

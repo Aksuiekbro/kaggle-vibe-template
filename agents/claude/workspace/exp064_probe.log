@@ -1,0 +1,15 @@
+rare classes (<10 samples): 14/82
+adversarial AUC: 0.9724 (83s)
+train: 2263 rows (399 augmented)
+
+baseline (reference, exp_048 same split/model): plain=0.9442 weighted=0.8223 topq=0.9573
+
+=== exp_064: per-clip (row-wise) z-normalization ===
+
+row-normalized fit (702s)
+row_normalized: plain=0.9013 weighted=0.7908 topq=0.9316 rare_acc=0.5000 (n_topq=117, n_rare=16)
+delta plain    vs exp_048-ref: -0.0429
+delta weighted vs exp_048-ref: -0.0315
+delta topq     vs exp_048-ref: -0.0257  <- coordinator's gating metric
+
+total time: 702s

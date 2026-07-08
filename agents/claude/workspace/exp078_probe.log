@@ -1,0 +1,8 @@
+subsample: 535 train (7 singleton-class rows dropped) / 200 test (0s)
+raw+log scattering extracted for subsample (637s)
+grid+raw-scattering: adv_auc=0.9896 plain=0.8209 topq=0.7353 (n_topq=34)
+grid+log-scattering: adv_auc=0.9896 plain=0.8209 topq=0.7353 (n_topq=34)
+grid+raw+log-scattering: adv_auc=0.9889 plain=0.7985 topq=0.7941 (n_topq=34)
+delta topq (log vs raw): +0.0000  delta adv_auc (log vs raw): +0.0000
+eval done (857s)
+total time: 1495s

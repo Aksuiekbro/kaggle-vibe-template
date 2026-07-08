@@ -1,0 +1,12 @@
+adversarial AUC: 0.9724 (71s), n_topq=108
+no-augment baseline (489s): plain=0.9013 weighted=0.8633 topq=0.9167
+baseline_exp018 (57 rare rows -> 228 extra, 666s): plain=0.9120 (d+0.0107) weighted=0.8517 (d-0.0116) topq=0.9352 (d+0.0185)
+more_oversample (57 rare rows -> 399 extra, 741s): plain=0.9099 (d+0.0086) weighted=0.8155 (d-0.0479) topq=0.9444 (d+0.0278)
+combined (145 rare rows -> 1015 extra, 1215s): plain=0.9142 (d+0.0129) weighted=0.7908 (d-0.0726) topq=0.9167 (d+0.0000)
+
+=== summary vs no-augment baseline ===
+no_augment: plain=0.9013 weighted=0.8633 topq=0.9167
+baseline_exp018: plain=0.9120 weighted=0.8517 topq=0.9352
+more_oversample: plain=0.9099 weighted=0.8155 topq=0.9444
+combined: plain=0.9142 weighted=0.7908 topq=0.9167
+total time: 3182s

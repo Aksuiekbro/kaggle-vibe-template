@@ -1,0 +1,10 @@
+n_peaks=12 tol_rel=0.02: direct-argmax acc=0.0097 (57s elapsed)
+n_peaks=12 tol_rel=0.04: direct-argmax acc=0.0097 (103s elapsed)
+n_peaks=12 tol_rel=0.06: direct-argmax acc=0.0097 (146s elapsed)
+n_peaks=16 tol_rel=0.02: direct-argmax acc=0.0097 (188s elapsed)
+n_peaks=16 tol_rel=0.04: direct-argmax acc=0.0097 (232s elapsed)
+n_peaks=16 tol_rel=0.06: direct-argmax acc=0.0097 (276s elapsed)
+n_peaks=24 tol_rel=0.02: direct-argmax acc=0.0097 (320s elapsed)
+n_peaks=24 tol_rel=0.04: direct-argmax acc=0.0097 (363s elapsed)
+n_peaks=24 tol_rel=0.06: direct-argmax acc=0.0097 (413s elapsed)
+total time: 413s

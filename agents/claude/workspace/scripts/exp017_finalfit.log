@@ -1,0 +1,5 @@
+/root/ml/lib/python3.12/site-packages/sklearn/utils/validation.py:2827: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+LGBM fit+predict done (484s)
+MLP fit+predict done (3s)
+wrote /root/kaggle-vibe-template/agents/claude/workspace/kernel_output_exp005/submission_exp017_blend.csv, 583 rows

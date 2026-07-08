@@ -1,0 +1,22 @@
+merged rows: train=2330 test=583 (0s)
+adversarial AUC (grid features): 0.9724 (85s)
+fold 0 done (1387s): a_acc=0.9575 b_acc=0.9344 c_acc=0.9498 pl'd=499/583
+fold 1 done (1359s): a_acc=0.9588 b_acc=0.9524 c_acc=0.9485 pl'd=505/583
+fold 2 done (1287s): a_acc=0.9330 b_acc=0.9162 c_acc=0.9407 pl'd=508/583
+
+=== exp_083 full CV (same-fold, for direct comparability to exp_081's original methodology) ===
+[A] XGB+aug+PL alone: topq=0.9674
+[A+B] exp_081 pairwise ref (w=0.3/0.7): topq=0.9708
+[same-fold] best combo=(0.4, 0.4, 0.2) topq=0.9726 delta vs A+B ref=+0.0017  <- what exp_081's methodology would report
+
+=== exp_083 full CV (NESTED / leave-one-fold-out weight selection, the corrected methodology) ===
+fold 0: weight chosen on OTHER folds = (0.3, 0.7, 0.0) (their topq=0.9761), held-out n=206
+fold 1: weight chosen on OTHER folds = (0.5, 0.2, 0.3) (their topq=0.9744), held-out n=192
+fold 2: weight chosen on OTHER folds = (0.3, 0.7, 0.0) (their topq=0.9698), held-out n=185
+
+weights chosen per fold: [(0.3, 0.7, 0.0), (0.5, 0.2, 0.3), (0.3, 0.7, 0.0)]
+nested topq(3-way blend)=0.9657  nested topq(A+B ref)=0.9708
+NESTED delta vs A+B ref: -0.0051  <- honest, submission-worthiness gate
+same-fold delta was: +0.0017 (inflated comparison point)
+VERDICT: nested delta does NOT clear the ~0.01-0.02 noise floor (exp_084) -- treat as noise, do not submit on this alone.
+total time: 4119s

@@ -1,0 +1,16 @@
+{
+  "cv_scores": [
+    0.9592274678111588,
+    0.944206008583691,
+    0.9678111587982833,
+    0.9527896995708155,
+    0.9506437768240343
+  ],
+  "cv_mean": 0.9549356223175967,
+  "cv_std": 0.008029307696939792,
+  "weights": {
+    "mlp_pca512": 0.53,
+    "svm_pca512": 0.47
+  },
+  "submission_file": "agents/gemini/submissions/submission_ensemble_pca_mlp_svm.csv"
+}

@@ -1,0 +1,13 @@
+{
+  "cv_scores": [
+    0.7532188841201717,
+    0.7532188841201717,
+    0.7811158798283262,
+    0.7381974248927039,
+    0.7832618025751072
+  ],
+  "cv_mean": 0.7618025751072961,
+  "cv_std": 0.017538898490731782,
+  "best_weight_model1": 0.5,
+  "submission_file": "agents/gemini/submissions/submission_ensemble.csv"
+}

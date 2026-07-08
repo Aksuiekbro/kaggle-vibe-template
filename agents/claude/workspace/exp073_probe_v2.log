@@ -1,0 +1,17 @@
+rare classes (<10 samples): 14/82
+
+baseline (reference, exp_048 same split/model): plain=0.9442 weighted=0.8223 topq=0.9573
+  [scattering-only] augmentation skipped: scattering features not producible by augment_rows -> extract_from_signal; training on non-augmented rows only
+
+scattering-only: n_train=1864 (399 aug) n_feats=468 adv_auc=0.9966 plain=0.6760 weighted=0.7014 topq=0.6838 (n_topq=117) (847s)
+  delta topq vs grid-baseline (0.9573): -0.2735  <- coordinator's gating metric
+  [grid+scattering] augmentation skipped: scattering features not producible by augment_rows -> extract_from_signal; training on non-augmented rows only
+
+grid+scattering: n_train=1864 (399 aug) n_feats=873 adv_auc=0.9975 plain=0.9442 weighted=0.8170 topq=0.9658 (n_topq=117) (1826s)
+  delta topq vs grid-baseline (0.9573): +0.0085  <- coordinator's gating metric
+
+=== summary ===
+scattering-only: plain=0.6760 weighted=0.7014 topq=0.6838
+grid+scattering: plain=0.9442 weighted=0.8170 topq=0.9658
+
+total time: 1826s

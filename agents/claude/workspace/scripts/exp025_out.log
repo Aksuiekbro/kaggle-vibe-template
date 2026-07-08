@@ -1,0 +1,29 @@
+rare classes (<10 samples): 14/82
+fold 0: augmented 48 rare rows -> 192 extra rows (119s)
+fold 0 LGBM(aug): acc=0.9254 (492s)
+fold 0 MLP(aug): acc=0.9356 (6s), total fold time 617s
+fold 1: augmented 47 rare rows -> 188 extra rows (90s)
+fold 1 LGBM(aug): acc=0.9266 (480s)
+fold 1 MLP(aug): acc=0.9395 (8s), total fold time 577s
+fold 2: augmented 51 rare rows -> 204 extra rows (100s)
+fold 2 LGBM(aug): acc=0.9034 (495s)
+fold 2 MLP(aug): acc=0.9149 (4s), total fold time 599s
+blend w_lgb=0.0: acc=0.9300
+blend w_lgb=0.1: acc=0.9386
+blend w_lgb=0.2: acc=0.9455
+blend w_lgb=0.3: acc=0.9502
+blend w_lgb=0.4: acc=0.9524
+blend w_lgb=0.5: acc=0.9481
+blend w_lgb=0.6: acc=0.9412
+blend w_lgb=0.7: acc=0.9365
+blend w_lgb=0.8: acc=0.9318
+blend w_lgb=0.9: acc=0.9258
+blend w_lgb=1.0: acc=0.9185
+
+=== exp_025 summary (augmented LGBM+MLP blend, full 3-fold CV) ===
+LGBM(aug)-only OOF acc=0.9185 balanced_acc=0.8896
+MLP(aug)-only  OOF acc=0.9300 balanced_acc=0.9152
+Best blend: w_lgb=0.4, acc=0.9524, balanced_acc=0.9410
+reference -- exp_017 (no augment) blend best acc was 0.9476 (w_lgb=0.4)
+delta vs exp_017 blend: +0.0048
+total time: 1793s

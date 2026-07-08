@@ -1,0 +1,48 @@
+[{"stream_name":"stdout","time":10.225439027,"data":"discovered DATA_ROOT=/kaggle/input/competitions/missing-fundamental-puzzle/kaggle_dataset-20251026T143755Z-1-001/\n"}
+,{"stream_name":"stdout","time":10.225524617,"data":"N_WORKERS=4\n"}
+,{"stream_name":"stdout","time":123.75707305,"data":"train_features.parquet: 200/2330 (113.5s)\n"}
+,{"stream_name":"stdout","time":213.000965675,"data":"train_features.parquet: 400/2330 (202.8s)\n"}
+,{"stream_name":"stdout","time":304.061858639,"data":"train_features.parquet: 600/2330 (293.8s)\n"}
+,{"stream_name":"stdout","time":394.276722449,"data":"train_features.parquet: 800/2330 (384.0s)\n"}
+,{"stream_name":"stdout","time":482.588260076,"data":"train_features.parquet: 1000/2330 (472.4s)\n"}
+,{"stream_name":"stdout","time":572.823021476,"data":"train_features.parquet: 1200/2330 (562.6s)\n"}
+,{"stream_name":"stdout","time":664.261991821,"data":"train_features.parquet: 1400/2330 (654.0s)\n"}
+,{"stream_name":"stdout","time":755.724071819,"data":"train_features.parquet: 1600/2330 (745.5s)\n"}
+,{"stream_name":"stdout","time":844.315113718,"data":"train_features.parquet: 1800/2330 (834.1s)\n"}
+,{"stream_name":"stdout","time":934.690230423,"data":"train_features.parquet: 2000/2330 (924.5s)\n"}
+,{"stream_name":"stdout","time":1027.652394452,"data":"train_features.parquet: 2200/2330 (1017.4s)\n"}
+,{"stream_name":"stdout","time":1085.352746771,"data":"wrote train_features.parquet shape=(2330, 132) in 1075.1s\n"}
+,{"stream_name":"stdout","time":1184.267820649,"data":"test_features.parquet: 200/583 (98.9s)\n"}
+,{"stream_name":"stdout","time":1274.492050112,"data":"test_features.parquet: 400/583 (189.1s)\n"}
+,{"stream_name":"stdout","time":1358.689737383,"data":"wrote test_features.parquet shape=(583, 131) in 273.3s\n"}
+,{"stream_name":"stdout","time":1363.075048653,"data":"exp_003 full adversarial AUC: 0.9984\n"}
+,{"stream_name":"stdout","time":1363.075773563,"data":"flatness_std         279\n"}
+,{"stream_name":"stdout","time":1363.075787403,"data":"zcr_std              218\n"}
+,{"stream_name":"stdout","time":1363.075792863,"data":"mfcc_3_mean          157\n"}
+,{"stream_name":"stdout","time":1363.075797463,"data":"contrast_1_mean      153\n"}
+,{"stream_name":"stdout","time":1363.075801903,"data":"contrast_0_std       130\n"}
+,{"stream_name":"stdout","time":1363.075806663,"data":"contrast_2_mean      111\n"}
+,{"stream_name":"stdout","time":1363.075811273,"data":"mfcc_19_mean          97\n"}
+,{"stream_name":"stdout","time":1363.075815553,"data":"spec_acf_lag10        90\n"}
+,{"stream_name":"stdout","time":1363.075819433,"data":"mfcc_9_mean           86\n"}
+,{"stream_name":"stdout","time":1363.075823553,"data":"mfcc_5_mean           81\n"}
+,{"stream_name":"stdout","time":1363.075827763,"data":"chroma_cqt_3_mean     80\n"}
+,{"stream_name":"stdout","time":1363.075832383,"data":"mfcc_7_mean           73\n"}
+,{"stream_name":"stdout","time":1363.075836673,"data":"mfcc_15_mean          71\n"}
+,{"stream_name":"stdout","time":1363.075841083,"data":"mfcc_13_mean          71\n"}
+,{"stream_name":"stdout","time":1363.075845643,"data":"mfcc_2_std            67\n"}
+,{"stream_name":"stdout","time":1363.075850203,"data":"dtype: int32\n"}
+,{"stream_name":"stdout","time":1363.078912403,"data":"n=2330 classes=82 min_per_class=3 max_per_class=56\n"}
+,{"stream_name":"stdout","time":1388.097851588,"data":"fold 0: acc=0.7156 (n_va=777)\n"}
+,{"stream_name":"stdout","time":1412.365984459,"data":"fold 1: acc=0.7130 (n_va=777)\n"}
+,{"stream_name":"stdout","time":1427.90433361,"data":"fold 2: acc=0.2758 (n_va=776)\n"}
+,{"stream_name":"stdout","time":1427.90491893,"data":"exp_002 full OOF accuracy: 0.5682\n"}
+,{"stream_name":"stdout","time":1427.90515475,"data":"fold mean=0.5681 std=0.2067\n"}
+,{"stream_name":"stdout","time":1454.829622335,"data":"DONE\n"}
+,{"stream_name":"stderr","time":1457.168963294,"data":"/usr/local/lib/python3.12/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":1457.169015084,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":1457.403416014,"data":"/usr/local/lib/python3.12/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":1457.403447524,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":1458.062340904,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":1459.250970873,"data":"[NbConvertApp] Writing 323131 bytes to __results__.html\n"}
+]

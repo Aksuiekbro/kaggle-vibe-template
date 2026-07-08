@@ -1,0 +1,15 @@
+=== exp080 probe exited ===
+subsample: 542 train / 200 test (1s)
+dropping 7 rows from 7 singleton classes before split
+grid+scattering Q=8 (reference): n_feats=873 adv_auc=0.9896 plain=0.8209 topq=0.7353 (n=34) (271s)
+Q=4 scattering extracted for subsample (366s)
+grid+scattering Q=4: n_feats=647 adv_auc=0.9893 plain=0.8060 topq=0.7647 (n=34) (824s)
+Q=16 scattering extracted for subsample (1313s)
+grid+scattering Q=16: n_feats=1273 adv_auc=0.9847 plain=0.7985 topq=0.7059 (n=34) (2519s)
+
+=== summary (topq, vs Q=8 reference) ===
+Q=8 (reference, cached): plain=0.8209 topq=0.7353 delta_vs_Q8=+0.0000
+Q=4: plain=0.8060 topq=0.7647 delta_vs_Q8=+0.0294
+Q=16: plain=0.7985 topq=0.7059 delta_vs_Q8=-0.0294
+
+total time: 2519s

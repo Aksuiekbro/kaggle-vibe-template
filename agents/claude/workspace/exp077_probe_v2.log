@@ -1,0 +1,7 @@
+subsample: 542 train / 200 test (high-tertile train rows: 182) (0s)
+16kHz scattering extracted for subsample (1316s), cached to /root/kaggle-vibe-template/agents/claude/workspace/scripts/exp077_train_scattering16k_subsample.parquet
+dropping 7 rows from 7 singleton classes before split
+grid+scattering-8kHz : adv_auc=0.9896 plain=0.8209 topq=0.7353 (n=34) topq_high_freq_tertile=0.7317 (n=41)
+grid+scattering-16kHz: adv_auc=0.9902 plain=0.8209 topq=0.7941 (n=34) topq_high_freq_tertile=0.7317 (n=41)
+eval done (482s)
+total time: 1798s

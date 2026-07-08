@@ -1,0 +1,7 @@
+train_crepe_features_probe.parquet: 50/308 (29.3s)
+train_crepe_features_probe.parquet: 100/308 (57.7s)
+train_crepe_features_probe.parquet: 150/308 (84.9s)
+train_crepe_features_probe.parquet: 200/308 (111.5s)
+train_crepe_features_probe.parquet: 250/308 (138.5s)
+train_crepe_features_probe.parquet: 300/308 (166.5s)
+wrote /root/kaggle-vibe-template/agents/claude/workspace/scripts/train_crepe_features_probe.parquet shape=(308, 514) in 171.3s

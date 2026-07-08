@@ -1,0 +1,7 @@
+train rows: 2330, classes: 82
+rare classes (<10): 14/82, augmented rows added: 511 (319s)
+stage-1 XGBoost fit done (350s)
+pseudo-labeled 531/583 real test rows at conf>=0.5
+stage-2 XGBoost+PL fit+predict done (402s)
+ExtraTrees+aug fit+predict done (19s)
+wrote /root/kaggle-vibe-template/agents/claude/workspace/kernel_output_exp005/submission_exp081_xgbpl_extratrees_blend.csv, 583 rows (1091s total)

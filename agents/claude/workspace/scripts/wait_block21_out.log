@@ -1,0 +1,19 @@
+DONE: both exp_041 and exp_043 finished
+
+delta plain:    +0.0107
+delta weighted: -0.0104
+delta topq:     -0.0034  <- coordinator's gating metric
+total time: 6514s
+---
+adversarial AUC: 0.9724 (71s), n_topq=583
+XGBoost fit+predict done (235s)
+CatBoost fit+predict done (4425s)
+
+=== exp_043: CatBoost-alone vs XGBoost-alone, grid features, full-data 80/20 holdout ===
+XGBoost-alone: plain=0.9442 weighted=0.7628 topq=0.9444 (n_topq_va=108)
+CatBoost-alone: plain=0.9206 weighted=0.8109 topq=0.9352 (n_topq_va=108)
+
+delta plain:    -0.0236
+delta weighted: +0.0480
+delta topq:     -0.0093  <- coordinator's gating metric
+total time: 4731s

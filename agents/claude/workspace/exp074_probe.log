@@ -1,0 +1,3 @@
+grid-only-no-aug (control): n_train=1864 n_feats=405 adv_auc=0.9724 plain=0.9442 weighted=0.7628 topq=0.9487 (n_topq=117) (309s)
+  delta topq vs augmented grid-baseline (0.9573): -0.0086  (expected negative -- this isolates the aug-removal cost)
+  delta topq vs grid+scattering (0.9658): +0.0171  <- scattering's isolated marginal contribution

@@ -1,0 +1,14 @@
+rare classes (<10 samples): 14/82
+adversarial AUC (grid features, train vs test): 0.9724 (78s)
+fold 0 done (641s): base_acc=0.9459 aug_acc=0.9498
+fold 1 done (597s): base_acc=0.9447 aug_acc=0.9498
+fold 2 done (652s): base_acc=0.9317 aug_acc=0.9394
+
+=== exp_042 full CV: XGBoost-alone, no-augment vs more_oversample-augmented ===
+XGBoost baseline (no augment): plain=0.9408 weighted=0.8602 topq=0.9434 (n_topq=583)
+XGBoost + more_oversample augment: plain=0.9464 weighted=0.8916 topq=0.9520 (n_topq=583)
+
+delta plain:    +0.0056
+delta weighted: +0.0315
+delta topq:     +0.0086  <- coordinator's gating metric
+total time: 1969s

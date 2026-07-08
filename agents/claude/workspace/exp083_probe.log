@@ -1,0 +1,30 @@
+merged rows: train=2330 test=583 (0s)
+adversarial AUC (grid features): 0.9724 (80s)
+train 1864 rows -> 2263 after rare-class augmentation (328s)
+[A] XGBoost+grid-aug+PL(thr=0.5) fit+predict done, 522/583 pseudo-labeled (628s)
+[B] ExtraTrees+grid-aug fit+predict done (15s)
+[C] XGBoost grid+scattering (no aug/PL) fit+predict done (661s)
+
+=== exp_083 probe: 3-way blend (XGB+grid-aug+PL / ExtraTrees+grid-aug / XGB grid+scattering) ===
+[A] XGBoost+grid-aug+PL(0.50) alone (banked pipeline): plain=0.9485 weighted=0.8808 topq=0.9658 (n_topq=117)
+[B] ExtraTrees+grid-aug alone: plain=0.9549 weighted=0.8715 topq=0.9573 (n_topq=117)
+[C] XGBoost grid+scattering alone: plain=0.9442 weighted=0.8156 topq=0.9487 (n_topq=117)
+[A+B ref] exp_081 confirmed-best pairwise blend (w_xgb=0.3): plain=0.9528 weighted=0.8738 topq=0.9658 (n_topq=117)
+blend(wA=1.0,wB=0.0,wC=0.0): plain=0.9485 weighted=0.8808 topq=0.9658 (n_topq=117)
+blend(wA=0.0,wB=1.0,wC=0.0): plain=0.9549 weighted=0.8715 topq=0.9573 (n_topq=117)
+blend(wA=0.0,wB=0.0,wC=1.0): plain=0.9442 weighted=0.8156 topq=0.9487 (n_topq=117)
+blend(wA=0.3,wB=0.7,wC=0.0): plain=0.9528 weighted=0.8738 topq=0.9658 (n_topq=117)
+blend(wA=0.7,wB=0.0,wC=0.3): plain=0.9506 weighted=0.8808 topq=0.9658 (n_topq=117)
+blend(wA=0.5,wB=0.0,wC=0.5): plain=0.9549 weighted=0.8809 topq=0.9658 (n_topq=117)
+blend(wA=0.0,wB=0.5,wC=0.5): plain=0.9592 weighted=0.9322 topq=0.9744 (n_topq=117)
+blend(wA=0.3,wB=0.4,wC=0.3): plain=0.9592 weighted=0.9321 topq=0.9744 (n_topq=117)
+blend(wA=0.4,wB=0.3,wC=0.3): plain=0.9592 weighted=0.9321 topq=0.9744 (n_topq=117)
+blend(wA=0.5,wB=0.2,wC=0.3): plain=0.9592 weighted=0.9321 topq=0.9744 (n_topq=117)
+blend(wA=0.2,wB=0.5,wC=0.3): plain=0.9614 weighted=0.9323 topq=0.9744 (n_topq=117)
+blend(wA=0.4,wB=0.4,wC=0.2): plain=0.9592 weighted=0.9321 topq=0.9744 (n_topq=117)
+blend(wA=0.3,wB=0.3,wC=0.4): plain=0.9592 weighted=0.9321 topq=0.9744 (n_topq=117)
+
+best combo: (0.0, 0.5, 0.5), topq=0.9744
+delta vs [A] alone: +0.0085
+delta vs [A+B] exp_081 pairwise reference: +0.0085  <- coordinator's gating metric
+total time: 1632s

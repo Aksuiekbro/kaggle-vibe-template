@@ -1,0 +1,8 @@
+/root/ml/lib/python3.12/site-packages/sklearn/utils/validation.py:2827: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+LGBM holdout acc: 0.9013 (564s)
+MLP holdout acc:  0.9227 (7s)
+
+n_train=1864 n_holdout=466 classes=82 n_feats=405
+delta (mlp - lgbm): +0.0215
+total time: 571s

@@ -1,0 +1,17 @@
+rare classes (<10 samples): 14/82
+adversarial AUC: 0.9724 (89s)
+train: 2263 rows (399 augmented)
+
+baseline (reference, exp_048/042 XGBoost+aug, same split): plain=0.9442 weighted=0.8223 topq=0.9573
+xgb_min_child_weight=1: plain=0.9442 weighted=0.8223 topq=0.9573 rare_acc=0.8125 (n_topq=117, n_rare=16)
+  delta topq vs XGBoost+aug baseline: -0.0000  <- coordinator's gating metric (fit 309s)
+xgb_min_child_weight=5: plain=0.9313 weighted=0.7459 topq=0.9231 rare_acc=0.8125 (n_topq=117, n_rare=16)
+  delta topq vs XGBoost+aug baseline: -0.0342  <- coordinator's gating metric (fit 206s)
+xgb_min_child_weight=10: plain=0.8948 weighted=0.8446 topq=0.9231 rare_acc=0.9375 (n_topq=117, n_rare=16)
+  delta topq vs XGBoost+aug baseline: -0.0342  <- coordinator's gating metric (fit 212s)
+xgb_min_child_weight=20: plain=0.6760 weighted=0.5323 topq=0.6410 rare_acc=0.5625 (n_topq=117, n_rare=16)
+  delta topq vs XGBoost+aug baseline: -0.3163  <- coordinator's gating metric (fit 175s)
+xgb_min_child_weight=40: plain=0.0021 weighted=0.0001 topq=0.0000 rare_acc=0.0625 (n_topq=117, n_rare=16)
+  delta topq vs XGBoost+aug baseline: -0.9573  <- coordinator's gating metric (fit 117s)
+
+total time: 1356s

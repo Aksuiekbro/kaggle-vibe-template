@@ -1,0 +1,19 @@
+rare classes (<10 samples): 14/82
+split: n_train=1867 n_val=463
+
+--- baseline (no augmentation), t=0s ---
+baseline: n_train=1867 acc=0.9114 balanced_acc=0.8625
+  rare-class val subset (n=16): acc=0.7500
+
+--- augmenting 57 rare-class training rows x4 variants, t=478s ---
+  extracted 228 augmented feature rows, t=580s
+
+--- augmented (+228 rows), t=580s ---
+augmented: n_train=2095 acc=0.9179 balanced_acc=0.8814
+  rare-class val subset (n=16): acc=0.8125
+
+=== summary ===
+overall accuracy delta (aug - base): +0.0065
+overall balanced_accuracy delta (aug - base): +0.0189
+rare-class-subset accuracy delta (aug - base): +0.0625
+total time: 1062s

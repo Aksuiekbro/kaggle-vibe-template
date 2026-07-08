@@ -1,0 +1,12 @@
+{
+  "exp_005_full_oof_acc": 0.9085836909871244,
+  "exp_005_fold_accs": [
+    0.9176319176319176,
+    0.9202059202059202,
+    0.8878865979381443
+  ],
+  "exp_002_unnormalized_full_oof_acc": 0.5682,
+  "exp_005_full_delta_vs_exp002": 0.3403836909871244,
+  "min_per_class": 3,
+  "max_per_class": 56
+}

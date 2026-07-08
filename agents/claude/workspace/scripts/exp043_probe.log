@@ -1,0 +1,14 @@
+rare classes (<10 samples): 14/82
+adversarial AUC: 0.9724 (79s), n_topq=583
+XGBoost baseline (no augment) fit+predict done (240s)
+augmented 57 rare rows -> 399 synthetic rows (182s)
+XGBoost augmented fit+predict done (246s)
+
+=== exp_043: XGBoost-alone, no-augment vs more_oversample-augmented, full-data 80/20 holdout ===
+XGBoost baseline (no augment): plain=0.9442 weighted=0.7628 topq=0.9444 (n_topq_va=108)
+XGBoost + more_oversample augment: plain=0.9442 weighted=0.8223 topq=0.9537 (n_topq_va=108)
+
+delta plain:    +0.0000
+delta weighted: +0.0595
+delta topq:     +0.0093  <- coordinator's gating metric
+total time: 747s

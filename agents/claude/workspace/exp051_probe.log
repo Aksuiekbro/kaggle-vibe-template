@@ -1,0 +1,34 @@
+rare classes (<10 samples): 14/82
+adversarial AUC: 0.9724 (71s)
+top-10 most shift-carrying features: ['d110_acf', 'd34_cep', 'd33_cep', 'd41_cep', 'd31_cep', 'd38_cep', 'd39_cep', 'd55_cep', 'd42_cep', 'd51_cep']
+train: 2263 rows (399 augmented)
+
+baseline (reference, exp_048 same split/model): plain=0.9442 weighted=0.8223 topq=0.9573
+
+=== exp_050: XGBoost+aug, drop top adversarial-importance features ===
+
+drop top 5% (20/405 features) fit done (523s)
+drop_top_5%: plain=0.9399 weighted=0.8164 topq=0.9402 (n_topq=117)
+delta plain:    -0.0043
+delta weighted: -0.0059
+delta topq:     -0.0171  <- coordinator's gating metric
+
+drop top 15% (61/405 features) fit done (777s)
+drop_top_15%: plain=0.9356 weighted=0.8725 topq=0.9573 (n_topq=117)
+delta plain:    -0.0086
+delta weighted: +0.0502
+delta topq:     -0.0000  <- coordinator's gating metric
+
+drop top 30% (122/405 features) fit done (991s)
+drop_top_30%: plain=0.9185 weighted=0.9368 topq=0.9573 (n_topq=117)
+delta plain:    -0.0257
+delta weighted: +0.1145
+delta topq:     -0.0000  <- coordinator's gating metric
+
+drop top 40% (162/405 features) fit done (1169s)
+drop_top_40%: plain=0.9142 weighted=0.9755 topq=0.9744 (n_topq=117)
+delta plain:    -0.0300
+delta weighted: +0.1532
+delta topq:     +0.0171  <- coordinator's gating metric
+
+total time: 1169s

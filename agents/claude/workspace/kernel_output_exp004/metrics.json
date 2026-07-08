@@ -1,0 +1,31 @@
+{
+  "exp_002_norm_full_oof_acc": 0.7,
+  "exp_002_norm_fold_accs": [
+    0.7207207207207207,
+    0.6936936936936937,
+    0.6855670103092784
+  ],
+  "exp_002_unnormalized_full_oof_acc": 0.5682,
+  "exp_004_full_delta_vs_unnormalized": 0.13179999999999992,
+  "exp_003_norm_full_adv_auc": 0.9983362657263377,
+  "exp_003_unnormalized_full_adv_auc": 0.9984,
+  "exp_003_norm_top_features": {
+    "flatness_std": 282,
+    "zcr_std": 243,
+    "contrast_1_mean": 162,
+    "mfcc_3_mean": 158,
+    "spec_acf_lag10": 130,
+    "contrast_0_std": 128,
+    "contrast_2_mean": 110,
+    "chroma_cqt_3_mean": 92,
+    "mfcc_9_mean": 89,
+    "mfcc_5_mean": 84,
+    "mfcc_2_std": 73,
+    "mfcc_19_mean": 72,
+    "contrast_3_mean": 70,
+    "mfcc_2_mean": 70,
+    "mfcc_6_mean": 65
+  },
+  "min_per_class": 3,
+  "max_per_class": 56
+}

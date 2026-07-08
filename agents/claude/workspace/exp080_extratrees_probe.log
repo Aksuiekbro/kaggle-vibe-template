@@ -1,0 +1,12 @@
+adversarial AUC: 0.9724 (88s), n_topq=583
+XGBoost fit+predict done (287s)
+ExtraTrees fit+predict done (13s)
+
+=== exp_080: ExtraTrees vs XGBoost-alone, grid features, full-data 80/20 holdout ===
+XGBoost-alone (banked family): plain=0.9442 weighted=0.7628 topq=0.9444 (n_topq_va=108)
+ExtraTrees-alone: plain=0.9528 weighted=0.8715 topq=0.9537 (n_topq_va=108)
+
+delta plain:    +0.0086
+delta weighted: +0.1087
+delta topq:     +0.0093  <- coordinator's gating metric
+total time: 388s

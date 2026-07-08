@@ -1,0 +1,16 @@
+rare classes (<10 samples): 14/82
+adversarial AUC: 0.9724 (82s)
+LGBM+aug fit+predict done (493s)
+XGBoost+aug fit+predict done (272s)
+
+=== exp_044: LGBM+aug-alone / XGBoost+aug-alone / soft-vote blend ===
+LGBM+aug-alone: plain=0.9099 weighted=0.8155 topq=0.9487 (n_topq=117)
+XGBoost+aug-alone: plain=0.9442 weighted=0.8223 topq=0.9573 (n_topq=117)
+blend w_lgb=0.3: plain=0.9356 weighted=0.8170 topq=0.9487 (n_topq=117)
+  delta topq vs best single model: -0.0085
+blend w_lgb=0.5: plain=0.9335 weighted=0.8167 topq=0.9487 (n_topq=117)
+  delta topq vs best single model: -0.0085
+blend w_lgb=0.7: plain=0.9249 weighted=0.8162 topq=0.9487 (n_topq=117)
+  delta topq vs best single model: -0.0085
+
+total time: 1077s

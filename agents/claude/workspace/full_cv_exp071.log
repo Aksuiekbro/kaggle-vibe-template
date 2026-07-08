@@ -1,0 +1,19 @@
+rare classes (<10 samples): 14/82
+adversarial AUC (grid features, train vs test): 0.9724 (74s)
+fold 0 base done (424s): base_acc=0.9498 | thr=0.5: 499/583 pl'd, acc=0.9575 (262s) | thr=0.4: 518/583 pl'd, acc=0.9498 (264s) | thr=0.3: 539/583 pl'd, acc=0.9524 (259s)
+fold 1 base done (377s): base_acc=0.9498 | thr=0.5: 505/583 pl'd, acc=0.9588 (265s) | thr=0.4: 522/583 pl'd, acc=0.9537 (234s) | thr=0.3: 534/583 pl'd, acc=0.9537 (253s)
+fold 2 base done (386s): base_acc=0.9394 | thr=0.5: 508/583 pl'd, acc=0.9330 (260s) | thr=0.4: 517/583 pl'd, acc=0.9317 (230s) | thr=0.3: 531/583 pl'd, acc=0.9369 (284s)
+
+=== exp_071 full CV: lower-threshold pseudo-label sweep (0.30/0.40/0.50) ===
+XGBoost + more_oversample augment (baseline, no PL): plain=0.9464 weighted=0.8916 topq=0.9520 (n_topq=583)
+XGBoost + aug + pseudo-label(thresh=0.5): plain=0.9498 weighted=0.9283 topq=0.9674 (n_topq=583)
+  delta topq vs no-pl baseline: +0.0154
+  delta topq vs thresh=0.60 full CV (+0.0137): +0.0017
+XGBoost + aug + pseudo-label(thresh=0.4): plain=0.9451 weighted=0.8987 topq=0.9623 (n_topq=583)
+  delta topq vs no-pl baseline: +0.0103
+  delta topq vs thresh=0.60 full CV (+0.0137): -0.0034
+XGBoost + aug + pseudo-label(thresh=0.3): plain=0.9476 weighted=0.9201 topq=0.9623 (n_topq=583)
+  delta topq vs no-pl baseline: +0.0103
+  delta topq vs thresh=0.60 full CV (+0.0137): -0.0034
+
+total time: 3572s

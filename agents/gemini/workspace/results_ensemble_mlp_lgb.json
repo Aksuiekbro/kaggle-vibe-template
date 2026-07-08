@@ -1,0 +1,13 @@
+{
+  "cv_scores": [
+    0.869098712446352,
+    0.8798283261802575,
+    0.8819742489270386,
+    0.8798283261802575,
+    0.8948497854077253
+  ],
+  "cv_mean": 0.8811158798283263,
+  "cv_std": 0.008210783892578953,
+  "best_weight_mlp": 0.62,
+  "submission_file": "agents/gemini/submissions/submission_ensemble_mlp_lgb.csv"
+}

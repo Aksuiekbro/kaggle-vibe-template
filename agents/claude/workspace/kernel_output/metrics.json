@@ -1,0 +1,28 @@
+{
+  "exp_002_full_oof_acc": 0.5682403433476395,
+  "exp_002_fold_accs": [
+    0.7155727155727156,
+    0.712998712998713,
+    0.2757731958762887
+  ],
+  "exp_003_full_adv_auc": 0.9983716016755129,
+  "exp_003_top_features": {
+    "flatness_std": 279,
+    "zcr_std": 218,
+    "mfcc_3_mean": 157,
+    "contrast_1_mean": 153,
+    "contrast_0_std": 130,
+    "contrast_2_mean": 111,
+    "mfcc_19_mean": 97,
+    "spec_acf_lag10": 90,
+    "mfcc_9_mean": 86,
+    "mfcc_5_mean": 81,
+    "chroma_cqt_3_mean": 80,
+    "mfcc_7_mean": 73,
+    "mfcc_15_mean": 71,
+    "mfcc_13_mean": 71,
+    "mfcc_2_std": 67
+  },
+  "min_per_class": 3,
+  "max_per_class": 56
+}

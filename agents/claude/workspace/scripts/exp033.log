@@ -1,0 +1,14 @@
+rare classes (<10 samples): 14/82
+adversarial AUC (grid features, train vs test): 0.9724 (69s)
+fold 0 done (1011s): base_acc=0.9189 aug_acc=0.9254
+fold 1 done (1071s): base_acc=0.9176 aug_acc=0.9266
+fold 2 done (1133s): base_acc=0.8905 aug_acc=0.9034
+
+=== shift-aware comparison: LGBM-alone, baseline vs augmented ===
+baseline (no augment): plain=0.9090 weighted=0.8436 topq=0.9177 (n_topq=583)
+augmented (exp_018 rare-class): plain=0.9185 weighted=0.8564 topq=0.9365 (n_topq=583)
+
+delta plain:   +0.0094
+delta weighted:+0.0127
+delta topq:    +0.0189  <- coordinator's gating metric
+total time: 3285s

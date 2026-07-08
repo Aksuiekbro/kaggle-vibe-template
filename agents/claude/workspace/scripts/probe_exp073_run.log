@@ -1,0 +1,3 @@
+rare classes (<10 samples): 14/82
+
+baseline (reference, exp_048 same split/model): plain=0.9442 weighted=0.8223 topq=0.9573

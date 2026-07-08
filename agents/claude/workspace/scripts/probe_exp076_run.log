@@ -1,0 +1,7 @@
+grid+scattering adversarial AUC: 0.9975 n_feats=873 n_topq=117 (136s)
+grid+scattering no-aug baseline (632s): n_train=1864 plain=0.9442 weighted=0.8170 topq=0.9658
+augmented 57 rare rows -> 399 extra rows (516s)
+grid+scattering + augmentation (694s): n_train=2263 plain=0.9442 (d+0.0000) weighted=0.7722 (d-0.0449) topq=0.9658 (d+0.0000)  <- coordinator's gating metric
+
+(context only, different fidelity) exp_073 full-CV grid+scattering-no-aug topq reference: 0.9658
+total time: 1978s

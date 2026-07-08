@@ -1,0 +1,18 @@
+rare classes (<10 samples): 14/82
+
+baseline (reference, exp_048 same split/model): plain=0.9442 weighted=0.8223 topq=0.9573
+
+grid-only: n_train=2263 (399 aug) n_feats=405 adv_auc=0.9724 plain=0.9442 weighted=0.8223 topq=0.9573 (n_topq=117) (552s)
+  delta topq vs grid-baseline (0.9573): -0.0000  <- coordinator's gating metric
+Traceback (most recent call last):
+  File "/root/kaggle-vibe-template/agents/claude/workspace/scripts/probe_exp073_scattering.py", line 128, in <module>
+    X_tr_aug = np.vstack([X_tr, aug_df[feat_cols].values])
+                                ~~~~~~^^^^^^^^^^^
+  File "/root/ml/lib/python3.12/site-packages/pandas/core/frame.py", line 4384, in __getitem__
+    indexer = self.columns._get_indexer_strict(key, "columns")[1]
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/ml/lib/python3.12/site-packages/pandas/core/indexes/base.py", line 6302, in _get_indexer_strict
+    self._raise_if_missing(keyarr, indexer, axis_name)
+  File "/root/ml/lib/python3.12/site-packages/pandas/core/indexes/base.py", line 6352, in _raise_if_missing
+    raise KeyError(f"None of [{key}] are in the [{axis_name}]")
+KeyError: "None of [Index(['sc_mean_0', 'sc_mean_1', 'sc_mean_2', 'sc_mean_3', 'sc_mean_4',\n       'sc_mean_5', 'sc_mean_6', 'sc_mean_7', 'sc_mean_8', 'sc_mean_9',\n       ...\n       'sc_std_224', 'sc_std_225', 'sc_std_226', 'sc_std_227', 'sc_std_228',\n       'sc_std_229', 'sc_std_230', 'sc_std_231', 'sc_std_232', 'sc_std_233'],\n      dtype='str', length=468)] are in the [columns]"

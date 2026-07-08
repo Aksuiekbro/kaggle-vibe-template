@@ -1,0 +1,43 @@
+n_features=405 train=2330 test=583
+univariate AUC computed for all features (2s)
+full LGBM fit done (539s)
+
+correlation(shift_auc, importance) across all 405 features: -0.2797
+
+top 15 most suspicious (high importance AND high shift):
+       feature  shift_auc  importance  importance_rank  shift_rank  risk_score
+d110_harm_high   0.720244        2634              9.0        16.0        25.0
+d107_harm_high   0.721485        1004             37.0        13.0        50.0
+      d110_acf   0.696210        2902              7.0        67.0        74.0
+d109_harm_high   0.730052         573             89.0         2.0        91.0
+d108_harm_high   0.713001         730             63.0        34.0        97.0
+d105_harm_high   0.717686         580             86.0        23.0       109.0
+      d107_acf   0.680383        5677              2.0       119.5       121.5
+  d88_harm_sum   0.715116         544             97.0        29.0       126.0
+      d109_acf   0.687086         972             41.0        95.0       136.0
+      d108_acf   0.680383        1111             31.0       119.5       150.5
+ d61_harm_high   0.672045        4181              4.0       151.0       155.0
+ d51_harm_high   0.680778         695             68.5       116.0       184.5
+  d70_harm_low   0.671131        1037             35.0       152.0       187.0
+ d90_harm_high   0.700615         463            131.0        59.0       190.0
+d102_harm_high   0.710353         418            153.0        41.0       194.0
+
+60 features with shift_auc>0.7; 6 of those are also top-25% importance
+
+probe: 3-fold CV with 6 suspicious features dropped (399 remain)
+/root/ml/lib/python3.12/site-packages/sklearn/utils/validation.py:2827: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/root/ml/lib/python3.12/site-packages/sklearn/utils/validation.py:2827: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/root/ml/lib/python3.12/site-packages/sklearn/utils/validation.py:2827: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+  full: OOF acc=0.9090
+/root/ml/lib/python3.12/site-packages/sklearn/utils/validation.py:2827: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/root/ml/lib/python3.12/site-packages/sklearn/utils/validation.py:2827: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+/root/ml/lib/python3.12/site-packages/sklearn/utils/validation.py:2827: UserWarning: X does not have valid feature names, but LGBMClassifier was fitted with feature names
+  warnings.warn(
+  dropped: OOF acc=0.9086
+
+total time: 3327s

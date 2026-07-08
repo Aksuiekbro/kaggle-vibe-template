@@ -1,0 +1,3 @@
+train rows: 2330, classes: 82
+XGBoost fit+predict done (270s)
+wrote /root/kaggle-vibe-template/agents/claude/workspace/kernel_output_exp005/submission_exp040_xgboost_alone.csv, 583 rows (270s total)

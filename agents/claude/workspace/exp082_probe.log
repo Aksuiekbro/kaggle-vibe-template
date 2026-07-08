@@ -1,0 +1,12 @@
+[grid-only] adversarial AUC: 0.9724 n_feats=405 (82s)
+[grid+scattering] adversarial AUC: 0.9975 n_feats=873 (233s)
+ExtraTrees fit+predict on grid-only done (12s)
+ExtraTrees on grid-only: plain=0.9528 weighted=0.8715 topq=0.9537 (n_topq=108)
+ExtraTrees fit+predict on grid+scattering done (18s)
+ExtraTrees on grid+scattering: plain=0.9378 weighted=0.7718 topq=0.9667 (n_topq=120)
+
+=== exp_082 probe: ExtraTrees, grid-only vs grid+scattering ===
+delta plain:    -0.0150
+delta weighted: -0.0997
+delta topq:     +0.0130  <- coordinator's gating metric
+total time: 263s

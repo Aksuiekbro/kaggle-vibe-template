@@ -1,0 +1,18 @@
+=== exp077v2 (exp077_probe_v2.log) final ===
+subsample: 542 train / 200 test (high-tertile train rows: 182) (0s)
+16kHz scattering extracted for subsample (1316s), cached to /root/kaggle-vibe-template/agents/claude/workspace/scripts/exp077_train_scattering16k_subsample.parquet
+dropping 7 rows from 7 singleton classes before split
+grid+scattering-8kHz : adv_auc=0.9896 plain=0.8209 topq=0.7353 (n=34) topq_high_freq_tertile=0.7317 (n=41)
+grid+scattering-16kHz: adv_auc=0.9902 plain=0.8209 topq=0.7941 (n=34) topq_high_freq_tertile=0.7317 (n=41)
+eval done (482s)
+total time: 1798s
+=== exp078 (exp078_probe.log) final ===
+subsample: 535 train (7 singleton-class rows dropped) / 200 test (0s)
+raw+log scattering extracted for subsample (637s)
+grid+raw-scattering: adv_auc=0.9896 plain=0.8209 topq=0.7353 (n_topq=34)
+grid+log-scattering: adv_auc=0.9896 plain=0.8209 topq=0.7353 (n_topq=34)
+grid+raw+log-scattering: adv_auc=0.9889 plain=0.7985 topq=0.7941 (n_topq=34)
+delta topq (log vs raw): +0.0000  delta adv_auc (log vs raw): +0.0000
+eval done (857s)
+total time: 1495s
+DONE_BOTH

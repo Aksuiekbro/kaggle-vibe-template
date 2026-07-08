@@ -1,0 +1,17 @@
+adversarial AUC (grid features): 0.9724 (84s)
+train 1864 rows -> 2263 after rare-class augmentation (339s)
+XGBoost+aug+PL(thr=0.5) fit+predict done, 522/583 pseudo-labeled (632s)
+ExtraTrees+aug fit+predict done (15s)
+
+=== exp_081 probe: XGBoost+aug+PL(0.50) vs ExtraTrees+aug vs proba-blend ===
+XGBoost+aug+PL(thr=0.50) alone (banked pipeline): plain=0.9485 weighted=0.8808 topq=0.9658 (n_topq=117)
+ExtraTrees+aug alone: plain=0.9549 weighted=0.8715 topq=0.9573 (n_topq=117)
+blend(w_xgb=0.3): plain=0.9528 weighted=0.8738 topq=0.9658 (n_topq=117)
+blend(w_xgb=0.4): plain=0.9506 weighted=0.8738 topq=0.9658 (n_topq=117)
+blend(w_xgb=0.5): plain=0.9485 weighted=0.8737 topq=0.9658 (n_topq=117)
+blend(w_xgb=0.6): plain=0.9528 weighted=0.9320 topq=0.9744 (n_topq=117)
+blend(w_xgb=0.7): plain=0.9506 weighted=0.9320 topq=0.9744 (n_topq=117)
+
+best blend weight (w_xgb): 0.6, topq=0.9744
+delta vs XGBoost+aug+PL alone: +0.0085  <- coordinator's gating metric
+total time: 986s

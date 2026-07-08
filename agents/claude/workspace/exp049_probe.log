@@ -1,0 +1,15 @@
+rare classes (<10 samples): 14/82
+adversarial AUC: 0.9724 (73s)
+train: 2263 rows (399 augmented)
+baseline (no transform) fit done (586s)
+sanity check (transform(X,X) should be ~identity): max abs diff = 0.000000
+diagonal-aligned fit done (855s)
+
+=== exp_049: XGBoost+aug, no-transform vs diagonal-aligned-to-real-test ===
+no transform (exp_042 equivalent): plain=0.9442 weighted=0.8223 topq=0.9573 (n_topq=117)
+diagonal-aligned: plain=0.9442 weighted=0.8223 topq=0.9573 (n_topq=117)
+
+delta plain:    +0.0000
+delta weighted: +0.0000
+delta topq:     +0.0000  <- coordinator's gating metric
+total time: 855s

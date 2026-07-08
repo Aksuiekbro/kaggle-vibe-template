@@ -1,0 +1,23 @@
+train rows: 2330 (+511 aug), classes: 82 (305s)
+fit+predict_proba done (365s)
+EM converged in 20 iterations (max |delta|=4.00e-04)
+
+=== exp_060 probe: EM-estimated test prior vs train prior ===
+KL(test_hat || train): 0.3044
+L1 distance: 0.4618 (max possible 2.0)
+prior ratio range: [0.000, 41.343] (1.0 = no shift)
+
+top 10 classes by |prior_hat - train_prior|:
+  class 36: train_prior=0.0013 test_prior_hat=0.0532 ratio=41.34
+  class 77: train_prior=0.0167 test_prior_hat=0.0321 ratio=1.92
+  class 32: train_prior=0.0202 test_prior_hat=0.0350 ratio=1.73
+  class 69: train_prior=0.0073 test_prior_hat=0.0209 ratio=2.87
+  class 28: train_prior=0.0163 test_prior_hat=0.0297 ratio=1.82
+  class 74: train_prior=0.0129 test_prior_hat=0.0000 ratio=0.00
+  class 15: train_prior=0.0150 test_prior_hat=0.0031 ratio=0.20
+  class 37: train_prior=0.0223 test_prior_hat=0.0107 ratio=0.48
+  class 75: train_prior=0.0163 test_prior_hat=0.0275 ratio=1.68
+  class 29: train_prior=0.0129 test_prior_hat=0.0017 ratio=0.13
+
+fraction of real-test predictions that flip under EM correction: 0.0617
+total time: 669s

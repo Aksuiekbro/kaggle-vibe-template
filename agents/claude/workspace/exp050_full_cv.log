@@ -1,0 +1,15 @@
+rare classes (<10 samples): 14/82
+adversarial AUC: 0.9724 (69s)
+dropping top 20% (81/405 features), 324 retained
+fold 0 done (603s): ref_acc=0.9498 drop_acc=0.9344
+fold 1 done (610s): ref_acc=0.9498 drop_acc=0.9292
+fold 2 done (571s): ref_acc=0.9394 drop_acc=0.9265
+
+=== exp_050 full CV: exp_042 reference (all feats+aug) vs drop_top_20%+aug ===
+exp_042 reference (all features): plain=0.9464 weighted=0.8916 topq=0.9520 (n_topq=583)
+drop_top_20% features: plain=0.9300 weighted=0.8540 topq=0.9383 (n_topq=583)
+
+delta plain:    -0.0163
+delta weighted: -0.0377
+delta topq:     -0.0137  <- coordinator's gating metric
+total time: 1853s

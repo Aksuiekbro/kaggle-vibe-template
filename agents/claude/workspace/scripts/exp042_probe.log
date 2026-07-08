@@ -1,0 +1,13 @@
+train fold: 1864 rows + 399 augmented rare rows = 2263
+fit done (798s)
+no-TTA held-out acc: 0.9099 (800s)
+  TTA progress: 100/466 (195s)
+  TTA progress: 200/466 (386s)
+  TTA progress: 300/466 (571s)
+  TTA progress: 400/466 (753s)
+
+=== exp_042 TTA probe summary ===
+no-TTA acc:  0.9099
+TTA acc:     0.9142
+delta:       +0.0043
+total time: 1692s

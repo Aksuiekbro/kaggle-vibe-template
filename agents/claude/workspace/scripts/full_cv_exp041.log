@@ -1,0 +1,26 @@
+rare classes (<10 samples): 14/82
+adversarial AUC (grid features, train vs test): 0.9724 (78s)
+fold 0 fit done (715s), no_tta_acc=0.9292
+  fold 0 TTA progress: 200/777 (390s)
+  fold 0 TTA progress: 400/777 (773s)
+  fold 0 TTA progress: 600/777 (1184s)
+fold 0 TTA done (1535s), tta_acc=0.9421
+fold 1 fit done (622s), no_tta_acc=0.9176
+  fold 1 TTA progress: 200/777 (362s)
+  fold 1 TTA progress: 400/777 (730s)
+  fold 1 TTA progress: 600/777 (1106s)
+fold 1 TTA done (1460s), tta_acc=0.9266
+fold 2 fit done (623s), no_tta_acc=0.9059
+  fold 2 TTA progress: 200/776 (395s)
+  fold 2 TTA progress: 400/776 (774s)
+  fold 2 TTA progress: 600/776 (1145s)
+fold 2 TTA done (1480s), tta_acc=0.9162
+
+=== exp_041 full CV: LGBM+more_oversample, no-TTA vs TTA ===
+no-TTA: plain=0.9176 weighted=0.8711 topq=0.9383 (n_topq=583)
+TTA: plain=0.9283 weighted=0.8607 topq=0.9348 (n_topq=583)
+
+delta plain:    +0.0107
+delta weighted: -0.0104
+delta topq:     -0.0034  <- coordinator's gating metric
+total time: 6514s

@@ -1,0 +1,17 @@
+rare classes (<10 samples): 14/82
+adversarial AUC: 0.9724 (83s)
+train: 2263 rows (399 augmented)
+
+baseline (reference, exp_048 same split/model): plain=0.9442 weighted=0.8223 topq=0.9573
+
+=== exp_067a: LightGBM, stock defaults (num_leaves=31, min_data_in_leaf=20) ===
+lgbm_default: plain=0.9421 weighted=0.9827 topq=0.9915 rare_acc=0.9375 (n_topq=117, n_rare=16)
+delta topq vs exp_048-ref: +0.0342
+fit time so far: 841s
+
+=== exp_067b: LightGBM, few-shot config (arxiv 2411.04324) ===
+lgbm_fewshot: plain=0.3155 weighted=0.2250 topq=0.3248 rare_acc=0.5000 (n_topq=117, n_rare=16)
+delta topq vs exp_048-ref (XGBoost baseline):  -0.6325  <- coordinator's gating metric
+delta topq vs lgbm_default (own ablation):      -0.6667
+
+total time: 888s

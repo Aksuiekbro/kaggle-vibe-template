@@ -1,0 +1,8 @@
+adversarial AUC (grid+scattering): 0.9975 (130s)
+grid+scattering, no pseudo-label: plain=0.9442 weighted=0.8170 topq=0.9658 (n_topq=117)
+496/583 real test rows pseudo-labeled at thresh=0.6 (765s)
+grid+scattering + pseudo-label(0.6): plain=0.9399 weighted=0.8165 topq=0.9573 (n_topq=117)
+
+delta topq (this probe, pl vs no-pl):     -0.0085  <- coordinator's gating metric
+delta topq vs exp_073/074 full-CV reference (0.9657): -0.0084
+total time: 1498s
