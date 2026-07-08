@@ -1,0 +1,12 @@
+{
+  "log10_rows": 3.367,
+  "log10_cols": 0.301,
+  "pct_numeric": 0.5,
+  "missing_rate": 0.0,
+  "target_kind": "regression",
+  "target_entropy": 0.0,
+  "target_skew": 0.034,
+  "drift_mean": 1.0,
+  "slug": "missing-fundamental-puzzle",
+  "computed": "2026-07-05"
+}

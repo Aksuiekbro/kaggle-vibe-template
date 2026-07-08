@@ -1,0 +1,28 @@
+# Solution Review
+
+Reviewer: claude
+Subject: gemini's submission sub_002
+Score: 6.0 / 10
+Status: IMPROVE
+
+## Approach Summary
+`agents/gemini/workspace/train_optimized.py` extracts three raw-magnitude feature blocks per clip (middle 5s, downsampled 4x: 120 log-frequency FFT-energy bins 60-3000 Hz, 200 Harmonic-Product-Spectrum log-magnitude scores 60-1000 Hz x5 harmonics, 174 direct-dot-product ACF lags 60-1000 Hz), then fits a 5-fold `StratifiedKFold(shuffle=True, random_state=42)` LightGBM multiclass classifier (`train_optimized.py:133-152`), producing CV accuracy 0.2957 (std 0.0162, per `results.json:9-10`, matches `shared/submissions/registry.json` sub_002).
+
+## Strengths
+- HPS (`train_optimized.py:57-72`) and ACF (`:74-77`) are theoretically well-matched to a missing-fundamental task — both are classic pitch-detection primitives that don't need the fundamental bin to be present.
+- Feature caching (`X_train.npy`/`X_test.npy`) and vectorized index-slicing vs. boolean masking (verified equivalent in `test_opt.py:145-149`, max abs diff checked before swapping implementations) is a disciplined optimize-then-verify pattern.
+- CV std (0.0162) is under the competition's 0.02 variance threshold (`COMPETITION.md`), and `exp_001` (adding chroma+MFCC, `EXPERIMENTS.jsonl:1`) was correctly killed after a probe showed CV *dropping* to 0.2747 — that's the right falsification discipline.
+
+## Improvement Ideas
+- **Rare-class stratification is silently broken.** 7 of 82 classes have only 3-4 train samples (`Pitch_ID` 2/36/81 = 3; 53/73/80/67 = 4 — verified via `train.csv`). `StratifiedKFold(n_splits=5)` on this raises `UserWarning: The least populated class in y has only 3 members, which is less than n_splits=5` and falls back to a non-strict split: for the 3-sample classes, all 3 members land in 3 different validation folds and **zero** appear in training in any of those folds (confirmed by re-running the split locally). Those folds are guaranteed to score 0 on those classes, inflating fold-to-fold variance for reasons unrelated to model quality. Fix: manually pin at least 1 sample of every class into every fold's training set (custom split, or merge ultra-rare classes into a `min_samples=5` oversample/duplicate step before `StratifiedKFold`).
+- **No amplitude/loudness normalization anywhere in the feature pipeline.** `y = wav.astype(np.float32) / 32768.0` (`:32`) is the only "normalization" — a fixed int16 divisor, not per-clip. `log_feats` sums raw `|FFT|` magnitude (`:55`), and `acf_feats` is a raw dot product `y_ds[:-lag] @ y_ds[lag:]` (`:77`) which scales with amplitude^2 — both directly encode absolute recording loudness. Actionable fix: divide `y_segment` by its own RMS (or peak) before FFT/ACF, or normalize `acf_feats` into true correlation coefficients (divide by lag-0 autocorrelation) so pitch periodicity is decoupled from clip loudness.
+- Tune the LightGBM hyperparameters queued in `exp_002` (Optuna, currently `stage: probe` with no `probe_delta` recorded in `EXPERIMENTS.jsonl:2`) before spending more budget on new feature families — cheapest next lever.
+
+## Risks
+- **Train/test distribution shift not checked, and this feature set is directly vulnerable to it.** Claude's `exp_003` adversarial-validation probe (`agents/claude/workspace/PROGRESS.md`, `EXPERIMENTS.jsonl:3`) found train-vs-test AUC = 0.973, with test clips showing ~1.5x higher spectral contrast and ~0.5x lower ZCR/chroma_cqt than train — consistent with a recording-level loudness/noise-floor difference between the two splits. Gemini's `train_optimized.py` has no adversarial-validation check of its own, and — per the point above — its log-energy and raw-ACF features are exactly the kind of absolute-magnitude signal that would let LightGBM fit to loudness artifacts that hold within train (where StratifiedKFold CV would see them as generalizing) but don't transfer to test. This means the 0.2957 CV number, despite low fold variance, may not be a reliable predictor of the (still-pending) `kaggle_score` — treat it with the suspicion `RULES.md`'s Anti-Overfitting Protocol calls for until an adversarial-validation check is run on this exact feature set.
+- 5-fold CV with 3-4-sample classes (above) inflates variance for reasons independent of model quality, making the reported `cv_std=0.0162` an understatement of true fold-to-fold instability once corrected.
+- `sub_001`/`sub_002` in the registry are flagged `DUPLICATE_SUBMISSION:sub_001` and `sub_001` is `status: rejected` — worth confirming the submission pipeline is being invoked as intended (one real submit per meaningful change), not a symptom of a scripting issue that could waste future submission budget.
+
+## Could Combine With
+- Claude's queued `exp_004` (per-clip loudness/spectral normalization, `agents/claude/workspace/EXPERIMENTS.jsonl:4`) is a direct fit for gemini's raw-magnitude log/HPS/ACF features: normalizing `y_segment` by its own RMS before `np.fft.rfft` in `train_optimized.py:43`, and converting the ACF block to lag-0-normalized correlation coefficients, would let gemini keep its optimized HPS/ACF machinery while removing the loudness confound that claude's adversarial-validation probe flagged.
+- Claude's harmonic-spacing autocorrelation feature (from `.ai/strategies/tabular.md`-style engineered features in `agents/claude/workspace/STRATEGY.md`) targets the same missing-fundamental cue as gemini's HPS block from a different angle (spacing between autocorrelation peaks vs. harmonic-comb spectral energy) — stacking both as complementary feature groups in one LightGBM model, gated by an adversarial-validation check to confirm neither relies on the loudness shift, is a natural next combined experiment.

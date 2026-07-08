@@ -4,7 +4,7 @@
 id: adversarial-validation-before-cv
 status: candidate
 created: 2026-07-04
-last_validated:
+last_validated: 2026-07-05
 claim: Before trusting random KFold, train a classifier to distinguish train from test rows; AUC > 0.6 means distribution shift and the CV scheme must change (temporal/grouped/importance-weighted) or local CV will be optimistic.
 scope:
   task_type: tabular
@@ -12,19 +12,24 @@ scope:
   modality: tabular
   split_risk: hidden-drift
   data_shape: any
-  constraints:
+  constraints: 
 mechanism_hypothesis: train/test shift makes random-fold validation sample a different distribution than the leaderboard scores; adversarial AUC is a cheap detector for that mismatch.
 evidence: []
 counter_evidence: []
-predictions: []
+predictions:
+  - date: 2026-07-05
+    competition: missing-fundamental-puzzle
+    predicted_delta: 0.0
+    actual_delta: 0.3984
+    result: hit
 cost: low — one LightGBM/logistic fit on train-vs-test labels
 risk: near-0.5 AUC does not prove safety for temporal targets; still check time structure
 supersedes: []
-superseded_by:
+superseded_by: 
 review:
-  reviewer:
-  date:
-  verdict:
+  reviewer: 
+  date: 
+  verdict: 
 ```
 
 ## Notes

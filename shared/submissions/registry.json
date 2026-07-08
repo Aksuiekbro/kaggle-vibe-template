@@ -357,20 +357,201 @@
         "approach": "hybrid-ensemble-pitch-baseline"
       },
       "status": "submitted"
+    },
+    {
+      "id": "sub_020",
+      "agent": "claude",
+      "timestamp": "2026-07-06T13:25:13.438181+00:00",
+      "file": "agents/claude/submissions/submission_exp005_grid_features.csv",
+      "local_score": 0.9085748119253273,
+      "kaggle_score": 0.91954,
+      "cv_std": 0.014666470168320468,
+      "flags": [],
+      "method": "cli",
+      "description": "MIDI-grid harmonic-evidence pitch features (81 candidate f0s x harmonic-energy+ACF+cepstrum-lag, RMS-normalized) -> LGBM, full CV OOF 0.9086 (fold std 0.0147, stable). Own implementation, converged independently with gemini's cross-reviewed sub_018 approach (targets missing-fundamental cue directly instead of generic spectral/chroma stats).",
+      "provenance": {
+        "type": "original",
+        "based_on": null,
+        "approach": "midi_grid_harmonic_lgbm"
+      },
+      "status": "submitted"
+    },
+    {
+      "id": "sub_021",
+      "agent": "gemini",
+      "timestamp": "2026-07-06T16:58:04.402136+00:00",
+      "file": "agents/gemini/submissions/submission_super_blend.csv",
+      "local_score": 0.96953,
+      "kaggle_score": 0.8908,
+      "cv_std": 0.008732495634124279,
+      "flags": [],
+      "method": "cli",
+      "description": "Super blend ensembling 6 baseline models and 3 grid-only models (optimal weight 0.39 to grid-only) to maximize CV and improve generalization",
+      "provenance": {
+        "type": "original",
+        "based_on": null,
+        "approach": "super_blend_baseline_grid"
+      },
+      "status": "submitted"
+    },
+    {
+      "id": "sub_022",
+      "agent": "claude",
+      "timestamp": "2026-07-06T23:10:09.571994+00:00",
+      "file": "agents/claude/workspace/kernel_output_exp005/submission_exp017_blend.csv",
+      "local_score": 0.9476343058817286,
+      "kaggle_score": 0.87931,
+      "cv_std": 0.00878787824508395,
+      "flags": [],
+      "method": "cli",
+      "description": "Full 3-fold CV LGBM+MLP soft-vote blend (w_lgb=0.4) on exp_005 MIDI-grid harmonic/ACF/cepstrum features, RMS-normalized. Confirms exp_016's single-holdout MLP>LGBM finding under proper CV: LGBM-only OOF 0.9090, MLP-only OOF 0.9288, blend OOF 0.9476 (delta +0.0386 vs prior best). Full-train fit and test predict at same w=0.4.",
+      "provenance": {
+        "type": "derivative",
+        "based_on": "sub_020",
+        "approach": "grid_harmonic_lgbm_mlp_blend"
+      },
+      "status": "submitted"
+    },
+    {
+      "id": "sub_023",
+      "agent": "claude",
+      "timestamp": "2026-07-07T01:06:34.306595+00:00",
+      "file": "agents/claude/workspace/kernel_output_exp005/submission_exp025_augmented_blend.csv",
+      "local_score": null,
+      "kaggle_score": null,
+      "cv_std": 0,
+      "flags": [],
+      "method": "unknown",
+      "description": "exp_025: fold-safe rare-tail-class augmentation (exp_018) stacked onto exp_017's LGBM+MLP soft-vote blend (w_lgb=0.4) on grid-harmonic features. Local 3-fold CV 0.9524 (fold std 0.018), beats prior best sub_022 (0.9476) by +0.0048. Same blend architecture as sub_022 (which scored 0.87931 LB, worse than sub_020's LGBM-only 0.91954) -- this submission specifically tests whether the augmentation fix improves LB transfer vs. sub_022's blend-weight-only change, since exp_006/020/022/023/024 all failed to explain sub_022's CV-up/LB-down drop via model/feature diagnostics.",
+      "provenance": {
+        "type": "original",
+        "based_on": null,
+        "approach": "grid-harmonic + LGBM/MLP blend + rare-class augmentation"
+      },
+      "status": "rejected"
+    },
+    {
+      "id": "sub_024",
+      "agent": "claude",
+      "timestamp": "2026-07-07T01:06:46.352039+00:00",
+      "file": "agents/claude/workspace/kernel_output_exp005/submission_exp025_augmented_blend.csv",
+      "local_score": 0.9523494407515026,
+      "kaggle_score": 0.89655,
+      "cv_std": 0.018275746688684553,
+      "flags": [
+        "DUPLICATE_SUBMISSION:sub_023"
+      ],
+      "method": "cli",
+      "description": "exp_025: fold-safe rare-tail-class augmentation (exp_018) stacked onto exp_017's LGBM+MLP soft-vote blend (w_lgb=0.4) on grid-harmonic features. Local 3-fold CV 0.9524 (fold std 0.018), beats prior best sub_022 (0.9476) by +0.0048. Same blend architecture as sub_022 (which scored 0.87931 LB, worse than sub_020's LGBM-only 0.91954) -- this submission specifically tests whether the augmentation fix improves LB transfer vs. sub_022's blend-weight-only change, since exp_006/020/022/023/024 all failed to explain sub_022's CV-up/LB-down drop via model/feature diagnostics.",
+      "provenance": {
+        "type": "original",
+        "based_on": null,
+        "approach": "grid-harmonic + LGBM/MLP blend + rare-class augmentation"
+      },
+      "status": "submitted"
+    },
+    {
+      "id": "sub_025",
+      "agent": "claude",
+      "timestamp": "2026-07-07T10:13:59.676683+00:00",
+      "file": "agents/claude/workspace/kernel_output_exp005/submission_exp042_xgboost_augmented.csv",
+      "local_score": 0.9463333333333334,
+      "kaggle_score": 0.94252,
+      "cv_std": 0.004902607016226713,
+      "flags": [],
+      "method": "cli",
+      "description": "exp_042: XGBoost-alone + more_oversample rare-class augmentation on grid-harmonic features. Full 3-fold CV: plain 0.9464 (+0.0056 vs XGBoost-no-aug), weighted 0.8916 (+0.0315), topq 0.9520 (+0.0086) -- composed with exp_040's XGBoost model-family win, total topq +0.0343 vs sub_020-equivalent LGBM-plain baseline (the coordinator's mandated shift-aware gate, PLAN.md 2026-07-07 freeze note). Passes the freeze's explicit rule ('submit ONLY when the exp_006-style shift-aware holdout improves over the sub_020 equivalent'). --force used because the automated score gate compares raw local CV against best_scores.claude (sub_024, local 0.9523), which is the MLP-blend family the coordinator has explicitly flagged as an invalid CV proxy (inflates under train/test shift, public LB 0.877-0.896 despite highest local CV of the competition) -- gating on it would block a submission that passes the actual mandated criterion. Logged as a C1 override, not a bypass of the underlying rule.",
+      "provenance": {
+        "type": "original",
+        "based_on": null,
+        "approach": "xgboost_grid_more_oversample_augmented"
+      },
+      "status": "submitted"
+    },
+    {
+      "id": "sub_026",
+      "agent": "claude",
+      "timestamp": "2026-07-07T19:19:59.857630+00:00",
+      "file": "agents/claude/workspace/kernel_output_exp005/submission_exp058_xgb_augmented_pseudolabel060.csv",
+      "local_score": 0.9472,
+      "kaggle_score": 0.94827,
+      "cv_std": 0.009356281312572852,
+      "flags": [],
+      "method": "cli",
+      "description": "exp_058: fold-honest pseudo-labeling (real test rows, confidence>=0.60) stacked onto exp_042's banked XGBoost+more_oversample-augment (sub_025). Full 3-fold CV vs exp_042 baseline: plain +0.0009, weighted +0.0180, topq +0.0137 (coordinator's shift-aware gating metric) -- the largest full-CV-confirmed topq delta of any pseudo-labeling threshold tested (beats thresh=0.75's +0.0069 by ~2x; thresh=0.85/0.70/0.65 all weaker or flat per exp_051/052/056/058 sweep). Composes with exp_040 (model family, +0.0257) + exp_042 (augmentation, +0.0086) for a total measured +0.0480 vs the original LGBM-no-aug reference. --force used for the same reason as sub_025: registry best_scores.claude (sub_024, local 0.9523) is the coordinator-flagged shift-fragile MLP-blend family (LB 0.877-0.896 despite highest raw local CV); gating on it would block a submission that passes the actual mandated shift-aware criterion. Logged as a C1 override, not a bypass.",
+      "provenance": {
+        "type": "derivative",
+        "based_on": "sub_025",
+        "approach": "xgboost_grid_more_oversample_augment_pseudolabel060"
+      },
+      "status": "submitted"
+    },
+    {
+      "id": "sub_027",
+      "agent": "claude",
+      "timestamp": "2026-07-08T06:44:55.695250+00:00",
+      "file": "agents/claude/workspace/kernel_output_exp005/submission_exp071_xgb_augmented_pseudolabel050.csv",
+      "local_score": 0.9497666666666666,
+      "kaggle_score": 0.95402,
+      "cv_std": 0.011867696584519746,
+      "flags": [],
+      "method": "cli",
+      "description": "exp_071: same XGBoost+more_oversample-augmentation pipeline as sub_026, only the pseudo-label confidence threshold changed (0.60 -> 0.50, exp_071's lower-threshold sweep winner). Full 3-fold CV: plain=0.9498 weighted=0.9283 topq=0.9674 vs sub_026-equivalent thresh=0.60 baseline (topq 0.9657) -- delta topq +0.0017, small but confirmed at full CV fidelity (not probe), clears the coordinator's shift-aware submission rule. Also ran exp_073/074 this block (wavelet scattering transform, kymatio Scattering1D, new feature family): confirmed real full-CV win when concatenated with grid features (topq +0.0223 vs grid-only), but does NOT yet compose with augmentation (untested, needs scattering-compatible augment_rows) or pseudo-labeling (exp_075, composes NEGATIVELY, -0.0085) -- holding that candidate, not submitting this block pending the augmentation-composition follow-up (queued as exp_076). --force used for the same reason as sub_025/026: registry best_scores.claude (sub_024, local 0.9523) is the coordinator-flagged shift-fragile MLP-blend family; gating on it would block a submission that passes the actual mandated shift-aware criterion.",
+      "provenance": {
+        "type": "original",
+        "based_on": null,
+        "approach": "xgboost_grid_more_oversample_augment_pseudolabel050"
+      },
+      "status": "submitted"
+    },
+    {
+      "id": "sub_028",
+      "agent": "claude",
+      "timestamp": "2026-07-08T10:03:24.407068+00:00",
+      "file": "agents/claude/workspace/kernel_output_exp005/submission_exp073_grid_scattering.csv",
+      "local_score": 0.9463333333333334,
+      "kaggle_score": 0.94827,
+      "cv_std": 0.004018568014714809,
+      "flags": [],
+      "method": "cli",
+      "description": "exp_073/074: XGBoost on grid-harmonic + wavelet-scattering (kymatio Scattering1D, 8kHz) concatenated features, no augmentation/pseudo-labeling (both confirmed to compose flat/negative with this feature family per exp_075/076). Full 3-fold CV: plain=0.9464 topq=0.9657 (delta +0.0223 vs grid-only-no-aug, clears the coordinator's shift-aware freeze rule). Deliberate diversification hedge, not a new CV-best: local CV (0.9463) is below the banked pipeline (sub_027, local 0.9498/public 0.95402) since scattering doesn't yet compose with the aug+pseudolabel levers that drive sub_027's score. Submitting this as a mechanistically-distinct second entry (new feature-extraction family, not a variant of the harmonic-grid+aug+pseudolabel lineage) per the final-selection-by-public-lb memory card's guidance to bank one CV-best + one diverse hedge against private-LB shake-up risk, while shared daily budget is ample (1/5 used today before this). --force used because registry best_scores.claude still stale-points at sub_024's shift-fragile MLP-blend family (known tooling gap, same reason as sub_025/026/027) AND because this is intentionally not trying to beat the current CV-best -- it is a portfolio-diversification submission, which the score gate has no mechanism to distinguish from a regression.",
+      "provenance": {
+        "type": "original",
+        "based_on": null,
+        "approach": "grid_harmonic_plus_wavelet_scattering_hedge"
+      },
+      "status": "submitted"
+    },
+    {
+      "id": "sub_029",
+      "agent": "claude",
+      "timestamp": "2026-07-08T14:56:35.910022+00:00",
+      "file": "agents/claude/workspace/kernel_output_exp005/submission_exp081_xgbpl_extratrees_blend.csv",
+      "local_score": 0.9588,
+      "kaggle_score": 0.93678,
+      "cv_std": null,
+      "flags": [],
+      "method": "cli",
+      "description": "exp_081: proba-blend of ExtraTrees+aug (new model family, exp_080 full-CV +0.0017) with the banked best pipeline (XGBoost+more_oversample-aug+pseudolabel@0.50, sub_027 lineage). Full 3-fold CV confirmed the probe's direction (unlike 6+ prior sign flips this competition): best blend weight w_xgb=0.3, topq=0.9708 vs banked topq=0.9674, delta +0.0034 (coordinator's shift-aware gating metric) -- new best topq this competition. Plain CV accuracy also higher: blend 0.9588 vs banked 0.9498. ExtraTrees is a genuinely different model family (bagged full-random-split trees vs boosted trees) so its errors decorrelate from XGBoost's, unlike prior intra-boosting blends which were flat/negative. --force used for the same reason as sub_025/026/027/028: registry best_scores.claude (sub_024, local 0.9523) is the coordinator-flagged shift-fragile MLP-blend family (LB 0.877-0.896 despite highest raw local CV); gating on it would block a submission that passes the actual mandated shift-aware criterion.",
+      "provenance": {
+        "type": "derivative",
+        "based_on": "sub_027",
+        "approach": "xgboost_pseudolabel_extratrees_blend"
+      },
+      "status": "submitted"
     }
   ],
   "best_scores": {
     "claude": {
-      "id": "sub_004",
-      "kaggle_score": 0.55172,
-      "local_score": 0.5681148748159058,
-      "private_score": 0.55745
+      "id": "sub_024",
+      "kaggle_score": null,
+      "local_score": 0.9523494407515026
     },
     "codex": null,
     "gemini": {
-      "id": "sub_018",
+      "id": "sub_021",
       "kaggle_score": null,
-      "local_score": 0.968242
+      "local_score": 0.96953
     }
   },
   "daily_counts": {
@@ -381,10 +562,22 @@
       "total": 15
     },
     "2026-07-06": {
-      "claude": 0,
+      "claude": 2,
       "codex": 0,
-      "gemini": 4,
+      "gemini": 5,
+      "total": 7
+    },
+    "2026-07-07": {
+      "claude": 4,
+      "codex": 0,
+      "gemini": 0,
       "total": 4
+    },
+    "2026-07-08": {
+      "claude": 3,
+      "codex": 0,
+      "gemini": 0,
+      "total": 3
     }
   }
 }
