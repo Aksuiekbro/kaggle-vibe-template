@@ -721,3 +721,4 @@
 {"ts": "2026-07-09T00:39:17.691717+00:00", "rule": "C2", "event": "fired", "agent": "claude", "detail": "gate passed url=-"}
 {"ts": "2026-07-09T00:50:30.816760+00:00", "rule": "C2", "event": "fired", "agent": "claude", "detail": "gate passed url=-"}
 {"ts": "2026-07-09T00:57:24.298765+00:00", "rule": "C2", "event": "fired", "agent": "claude", "detail": "gate passed url=-"}
+{"ts": "2026-07-09T01:22:15.635850+00:00", "rule": "C2", "event": "fired", "agent": "claude", "detail": "gate passed url=-"}
