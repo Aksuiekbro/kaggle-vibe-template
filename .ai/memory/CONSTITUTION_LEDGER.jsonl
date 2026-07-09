@@ -725,3 +725,6 @@
 {"ts": "2026-07-09T01:45:31.827472+00:00", "rule": "C2", "event": "fired", "agent": "claude", "detail": "gate passed url=-"}
 {"ts": "2026-07-09T01:51:15.482739+00:00", "rule": "C2", "event": "fired", "agent": "claude", "detail": "gate passed url=-"}
 {"ts": "2026-07-09T01:57:19.536584+00:00", "rule": "C11", "event": "fired", "agent": null, "detail": "retrieve anchor=stuck returned 3"}
+{"ts": "2026-07-09T02:09:03.138727+00:00", "rule": "C2", "event": "fired", "agent": "claude", "detail": "gate passed url=-"}
+{"ts": "2026-07-09T02:14:49.820768+00:00", "rule": "C11", "event": "fired", "agent": null, "detail": "retrieve anchor=stuck returned 3"}
+{"ts": "2026-07-09T02:32:38.519203+00:00", "rule": "C2", "event": "fired", "agent": "claude", "detail": "gate passed url=-"}
