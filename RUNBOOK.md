@@ -75,6 +75,12 @@ done
 Notes:
 - `/day` is the sprint skill — it sequences brief → gate → scheduler →
   verify → submit → lint per block, so the loop body stays one line.
+- **Two-tier model split (recommended)**: run the continuous worker loop on the
+  cheap model (subscription default / Sonnet) and add a STRATEGIST loop on the
+  big model (`--model claude-fable-5`) that wakes every ~6h to audit the worker
+  (lint, cv-lb), curate the scheduler queue, and write dated strategy notes —
+  judgment on the expensive tokens, labor on the cheap ones. The scheduler
+  queue and STRATEGY.md are the interface between the two.
 - Rate limits are expected: a block that dies on limits just restarts after the
   sleep. Raise the sleep if you keep hitting caps.
 - **Submission budget**: Kaggle allows ~5/day for the ONE account all agents
