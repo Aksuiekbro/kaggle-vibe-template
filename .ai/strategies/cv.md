@@ -27,12 +27,34 @@ Image classification, object detection, segmentation, and other vision tasks. Th
 - Mask R-CNN for instance segmentation
 - SegFormer for semantic segmentation
 
+**TAO Pre-trained Architecture Quick Reference (GPU-accelerated training):**
+
+| Task | Architecture | TAO Skill | Notes |
+|------|-------------|-----------|-------|
+| Classification | EfficientNet-B0 to B7 | `tao-train-efficientnet` | Best accuracy/speed trade-off |
+| Classification | FAN (Fully Attentional Network) | `tao-train-fan` | Strong on fine-grained |
+| Detection | RT-DETR | `tao-train-rt-detr` | Real-time transformer detector |
+| Detection | DINO | `tao-train-dino` | State-of-the-art detector |
+| Detection | Grounding DINO | `tao-train-grounding-dino` | Open-vocabulary detection |
+| Detection | CenterPose | `tao-train-centerpose` | 6-DoF pose estimation |
+| Segmentation | SegFormer | `tao-train-segformer` | Efficient semantic seg |
+| Segmentation | Mask2Former | `tao-train-mask2former` | Universal segmentation |
+| Segmentation | Mask Auto Labeler | `tao-train-mal` | Auto-labeling for segmentation |
+| Instance Seg | Mask R-CNN | `tao-train-mask-rcnn` | Standard instance seg |
+| Keypoints | Pose Classification | `tao-train-pose-classification` | Action recognition |
+| Re-ID | Re-Identification | `tao-train-re-identification` | Object re-identification |
+| OCR | OCRNet | `tao-train-ocrnet` | Scene text recognition |
+
+Install any: `npx skills add nvidia/skills/<skill-name>`
+
 ### 3. Augmentation (critical for CV)
 - Basic: horizontal flip, vertical flip, rotation, scale
 - Color: brightness, contrast, saturation, hue jitter
 - Advanced: CutMix, MixUp, Mosaic, GridMask
 - Domain-specific: whatever transformations preserve the label
 - Use albumentations library for efficient augmentation pipelines
+- **NVIDIA DALI** for GPU-accelerated data loading and augmentation pipeline. DALI moves augmentation to GPU, eliminating CPU bottleneck. Install: `npx skills add nvidia/skills/dali-dynamic-mode`. Use DALI when CPU augmentation is the bottleneck (check with profiler).
+- **Data Designer** for synthetic image generation. Can generate realistic synthetic training images to augment small datasets. Especially useful for rare classes or domain-specific imagery. Install: `npx skills add nvidia/skills/data-designer`.
 
 ### 4. Training Optimization
 - Learning rate: cosine annealing with warmup
@@ -40,6 +62,7 @@ Image classification, object detection, segmentation, and other vision tasks. Th
 - Mixed precision (fp16/bf16)
 - Progressive resizing: train on small images first, then increase
 - Test-time augmentation (TTA): flip, rotate at inference, average predictions
+- **TAO AutoML** for automated hyperparameter optimization with WandB experiment tracking. Install: `npx skills add nvidia/skills/tao-run-automl`.
 
 ### 5. Ensembling
 - Ensemble different architectures (CNN + ViT)
@@ -50,6 +73,8 @@ Image classification, object detection, segmentation, and other vision tasks. Th
 ## Implementation Guidelines
 
 - **Framework**: PyTorch + timm (PyTorch Image Models)
+- **NVIDIA TAO**: Pre-built training pipelines for 20+ architectures — use when rapid experimentation across architectures is needed
+- **DALI**: GPU data loading pipeline — use when CPU augmentation is the training bottleneck
 - **CV Strategy**: Stratified K-Fold on label distribution
 - **Image size**: Start small (224), increase later if it helps
 - **GPU memory**: Monitor with `nvidia-smi`, adjust batch size accordingly

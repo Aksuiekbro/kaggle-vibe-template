@@ -187,6 +187,40 @@ After a competition closes or reliable winner writeups appear, run `.ai/checklis
 - Convert durable lessons into memory-card candidates
 - Record which prior memory cards helped or misled the agents
 
+## GPU-Accelerated Tools
+
+NVIDIA provides a set of GPU-accelerated skills that can dramatically speed up specific competition workflows. These are **optional accelerators** -- everything works without them, but they can provide 10-100x speedups when a GPU is available.
+
+### When to Use What
+
+| Tool | Competition Type | What It Does | Install |
+|------|-----------------|--------------|---------|
+| **cuOpt** | Optimization | Converts problems to LP/MILP/QP and solves on GPU | `npx skills add nvidia/skills/cuopt-numerical-optimization-formulation` |
+| **cuOpt Routing** | Optimization (VRP/TSP) | GPU-accelerated vehicle routing solver | `npx skills add nvidia/skills/cuopt-routing-formulation` |
+| **cuDF** | Tabular / any | Drop-in pandas replacement, 10-100x faster on GPU | `pip install cudf` |
+| **cufolio** | Tabular / any | Portfolio-optimized ensemble weights (Mean-CVaR) | `npx skills add nvidia/skills/cufolio` |
+| **Data Designer** | Tabular / NLP / CV | Synthetic data generation from NeMo | `npx skills add nvidia/skills/data-designer` |
+| **TAO AutoML** | Tabular / CV | GPU hyperparameter optimization with WandB | `npx skills add nvidia/skills/tao-run-automl` |
+| **TAO Train** | CV | Pre-built training for 20+ architectures | `npx skills add nvidia/skills/tao-train-<arch>` |
+| **DALI** | CV | GPU data loading and augmentation pipeline | `npx skills add nvidia/skills/dali-dynamic-mode` |
+| **TileGym** | Optimization | Custom GPU kernel autotuning | `npx skills add nvidia/skills/tilegym-cutile-autotuning` |
+| **Multi-Objective** | Optimization / Ensembling | Pareto frontier exploration | `npx skills add nvidia/skills/cuopt-multi-objective-exploration` |
+
+### Decision Flow
+
+1. **Optimization competition?** Try cuOpt formulation first (section 2 in `.ai/strategies/optimization.md`). If it is a routing problem, use cuOpt Routing.
+2. **Tabular competition?** Use `import cudf as pd` for all data processing. Use TAO AutoML for HPO. Use `tools/ensemble_optimizer.py` for optimal blend weights.
+3. **CV competition?** Check the TAO architecture table in `.ai/strategies/cv.md`. Use DALI if CPU augmentation is the bottleneck. Use Data Designer for synthetic images.
+4. **NLP competition?** Use Data Designer for synthetic text generation to augment rare classes.
+5. **Any competition with ensembling?** Run `python tools/ensemble_optimizer.py` to find mathematically optimal blend weights.
+
+### Important Notes
+
+- These tools require an NVIDIA GPU. If no GPU is available, all strategies have CPU fallbacks.
+- cuDF code is compatible with pandas -- if cuDF is not installed, the same code runs on CPU with `import pandas as pd`.
+- The ensemble optimizer (`tools/ensemble_optimizer.py`) works without cufolio -- it falls back to scipy optimization.
+- Skills are installed per-session with `npx skills add nvidia/skills/<name>`. They provide Claude Code with reference documentation for the skill's API.
+
 ## What NOT To Do
 
 - Do not submit without beating current best local score

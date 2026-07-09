@@ -41,6 +41,19 @@ Work autonomously. Do not ask "should I continue?" or "should I run the next bat
 - During sharing rounds: read-only access to `shared/best/`
 - Draft shared-plan and memory updates in your workspace; they are consolidated during sharing rounds or by a designated coordinator
 
+### GPU-Accelerated Tools (when NVIDIA GPU is available)
+- **cuDF** — drop-in pandas replacement (`import cudf as pd`), 10-100x faster on GPU. Falls back to pandas if unavailable.
+- **cuOpt** — GPU solver for LP/MILP/QP optimization. Try this before writing custom C++ SA for problems that can be mathematically formulated.
+- **cuOpt Routing** — dedicated VRP/TSP/PDP solver. Handles time windows, capacity, fleet heterogeneity.
+- **TAO AutoML** — GPU hyperparameter search with WandB tracking. Good alternative to grid/random search.
+- **TAO Train** — pre-built CV training pipelines (EfficientNet, DINO, RT-DETR, SegFormer, Mask2Former, etc.).
+- **DALI** — GPU data loading/augmentation for CV tasks.
+- **Data Designer** — synthetic data generation for tabular/text/image augmentation.
+- **ensemble_optimizer.py** — portfolio-optimized ensemble weights (Mean-CVaR). Run: `python tools/ensemble_optimizer.py`.
+- **TileGym** — custom CUDA kernel autotuning for compute-bound problems.
+
+Install: `npx skills add nvidia/skills/<skill-name>`. See RULES.md for when to use each tool.
+
 ## Cross-Review Duty
 When another agent achieves a new personal best, review their approach following the Cross-Review Protocol in RULES.md. Write verdicts to `.ai/reviews/`.
 

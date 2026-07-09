@@ -30,6 +30,15 @@ Text classification, NER, question answering, summarization, and other natural l
 - Mixup at embedding level
 - Pseudo-labeling on unlabeled data (if available)
 
+**GPU-Accelerated Synthetic Data (Data Designer):**
+- NVIDIA Data Designer (NeMo) generates high-quality synthetic text data on GPU
+- Useful for: augmenting small datasets, generating examples for rare/underrepresented classes, creating domain-specific training data, generating adversarial examples for robustness
+- Can generate synthetic text that preserves statistical properties of the original distribution
+- Especially valuable when the competition has limited labeled data or severe class imbalance
+- Install: `npx skills add nvidia/skills/data-designer`
+- Workflow: analyze class distribution -> identify underrepresented classes -> generate synthetic examples -> validate quality with a held-out classifier -> add to training set
+- Warning: always validate synthetic data quality. Poor synthetic data can hurt more than help. Use a small validation set to confirm synthetic augmentation improves CV score before scaling up.
+
 ### 5. Ensembling
 - Ensemble different model architectures (DeBERTa + RoBERTa + BERT)
 - Ensemble different training seeds

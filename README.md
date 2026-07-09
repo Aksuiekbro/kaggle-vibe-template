@@ -123,6 +123,7 @@ endgame protocol → post-close postmortem → gym runs between competitions.
 | `evaluate.py` | `python tools/evaluate.py --agent <name> --file <path>` | Local evaluation with CV + overfitting flags |
 | `submit.py` | `python tools/submit.py --agent <name> --file <path> --description "..."` | Score-gated submission (MCP → CLI fallback) |
 | `share.py` | `python tools/share.py [start\|status\|end]` | Manage sharing rounds and collect consolidation drafts |
+| `ensemble_optimizer.py` | `python tools/ensemble_optimizer.py --predictions m1.csv m2.csv --cv-scores 0.85 0.83 --cv-stds 0.01 0.02` | Portfolio-optimized ensemble weights (Mean-CVaR) |
 | `registry.py` | `python tools/registry.py status` | View submission registry |
 | `brief.py` | `python tools/brief.py generate --agent <name>` | Session-start context pack: gate, constitution, calibration, memory, skills, queue |
 | `writeup.py` | `python tools/writeup.py check\|log\|hook --agent <name>` | Predict-before-read gate + reading ledger (C2) |
@@ -136,6 +137,58 @@ endgame protocol → post-close postmortem → gym runs between competitions.
 | `fingerprint.py` | `python tools/fingerprint.py compute\|compare` | Measured competition similarity |
 | `gym.py` | `python tools/gym.py start\|score\|end\|report` | Shadow gym on finished competitions (memory A/B) |
 | `selfcheck.py` | `python tools/selfcheck.py` | Acceptance battery — verifies every gate and loop |
+
+## NVIDIA GPU Acceleration (Optional)
+
+The framework integrates NVIDIA GPU-accelerated skills that provide 10-100x speedups for specific workflows. These are optional -- everything works without a GPU, but agents will automatically use GPU tools when available.
+
+### By Competition Type
+
+**Optimization:**
+- [cuOpt Numerical Optimization](https://docs.nvidia.com/cuopt/) -- formulate problems as LP/MILP/QP and solve on GPU. First-class approach before simulated annealing.
+- [cuOpt Routing](https://docs.nvidia.com/cuopt/) -- dedicated VRP/TSP/PDP solver with real-world constraints.
+- [TileGym](https://github.com/NVIDIA/TileGym) -- custom GPU kernel autotuning for compute-bound scoring functions.
+
+**Tabular:**
+- [cuDF](https://docs.rapids.ai/api/cudf/stable/) -- drop-in pandas replacement (`import cudf as pd`), 10-100x faster.
+- [Data Designer](https://docs.nvidia.com/nemo/) -- synthetic tabular data generation for augmenting small/imbalanced datasets.
+- [TAO AutoML](https://docs.nvidia.com/tao/) -- GPU-accelerated hyperparameter search with WandB tracking.
+
+**Computer Vision:**
+- [TAO Train](https://docs.nvidia.com/tao/) -- pre-built training pipelines for 20+ architectures (EfficientNet, DINO, RT-DETR, SegFormer, Mask2Former, etc.).
+- [DALI](https://docs.nvidia.com/deeplearning/dali/) -- GPU data loading and augmentation pipeline.
+- [Data Designer](https://docs.nvidia.com/nemo/) -- synthetic image generation.
+
+**NLP:**
+- [Data Designer](https://docs.nvidia.com/nemo/) -- synthetic text generation for data augmentation.
+
+**Ensembling (all competition types):**
+- `tools/ensemble_optimizer.py` -- portfolio-optimized blend weights using Mean-CVaR optimization (concept from [cufolio](https://docs.nvidia.com/cufolio/)).
+- [Multi-Objective Exploration](https://docs.nvidia.com/cuopt/) -- Pareto frontier tracing for multi-metric optimization.
+
+### Installation
+
+Skills are installed per-session and provide API reference documentation to the agents:
+
+```bash
+# Install a specific skill
+npx skills add nvidia/skills/<skill-name>
+
+# Common installs for tabular competitions
+npx skills add nvidia/skills/data-designer
+npx skills add nvidia/skills/tao-run-automl
+npx skills add nvidia/skills/cufolio
+
+# Common installs for optimization competitions
+npx skills add nvidia/skills/cuopt-numerical-optimization-formulation
+npx skills add nvidia/skills/cuopt-routing-formulation
+
+# Common installs for CV competitions
+npx skills add nvidia/skills/tao-train-efficientnet
+npx skills add nvidia/skills/dali-dynamic-mode
+```
+
+cuDF is installed via pip: `pip install cudf-cu12` (requires NVIDIA GPU with CUDA 12+).
 
 ## Agent Failure Mode Mitigations
 

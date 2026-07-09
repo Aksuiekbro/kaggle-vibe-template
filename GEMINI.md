@@ -44,6 +44,19 @@ When searching for approaches:
 - Search academic papers for the problem type
 - Document findings in `agents/gemini/workspace/RESEARCH.md`
 
+## GPU-Accelerated Tools (when NVIDIA GPU is available)
+- **cuDF** — drop-in pandas replacement (`import cudf as pd`), 10-100x faster on GPU. Falls back to pandas if unavailable.
+- **cuOpt** — GPU solver for LP/MILP/QP optimization. Formulate the problem mathematically and solve on GPU before trying custom heuristics.
+- **cuOpt Routing** — dedicated VRP/TSP/PDP solver with real-world constraint support.
+- **TAO AutoML** — GPU hyperparameter optimization with WandB experiment tracking.
+- **TAO Train** — pre-built training pipelines for 20+ CV architectures (EfficientNet, DINO, RT-DETR, SegFormer, Mask2Former, etc.).
+- **DALI** — GPU data loading/augmentation pipeline for CV. Use when CPU augmentation bottlenecks training.
+- **Data Designer** — synthetic data generation (tabular, text, images) for augmenting small/imbalanced datasets.
+- **ensemble_optimizer.py** — portfolio-optimized ensemble blend weights via Mean-CVaR. Run: `python tools/ensemble_optimizer.py`.
+- **TileGym** — custom GPU kernel autotuning for compute-bound scoring functions.
+
+Install: `npx skills add nvidia/skills/<skill-name>`. See RULES.md "GPU-Accelerated Tools" for full decision flow. Use your search capability to find NVIDIA documentation and examples for these tools.
+
 ## Error Handling
 - Do NOT delete files to "start fresh" unless you've saved your progress
 - Do NOT retry the same command expecting different results

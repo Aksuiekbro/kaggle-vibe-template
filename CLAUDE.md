@@ -54,3 +54,16 @@ When another agent achieves a new personal best, review their approach following
 - Python, pip, conda — for ML/data science work
 - C/C++ compilers — for optimization problems
 - All standard Unix tools
+
+### GPU-Accelerated Tools (when NVIDIA GPU is available)
+- **cuDF** — drop-in pandas replacement, 10-100x faster. Use `import cudf as pd` with fallback to pandas.
+- **cuOpt** — GPU solver for LP/MILP/QP optimization problems. Try before writing custom SA.
+- **cuOpt Routing** — dedicated VRP/TSP/PDP solver. Use for any routing/scheduling competition.
+- **TAO AutoML** — GPU hyperparameter optimization with WandB tracking. Alternative to Optuna.
+- **TAO Train** — pre-built training for 20+ CV architectures (EfficientNet, DINO, RT-DETR, SegFormer, Mask2Former, etc.).
+- **DALI** — GPU data loading/augmentation pipeline for CV. Use when CPU augmentation is the bottleneck.
+- **Data Designer** — synthetic data generation (tabular, text, images) for augmentation.
+- **cufolio / ensemble_optimizer.py** — portfolio-optimized ensemble weights via Mean-CVaR optimization. Run: `python tools/ensemble_optimizer.py`.
+- **TileGym** — custom GPU kernel autotuning for compute-bound scoring functions.
+
+Install skills: `npx skills add nvidia/skills/<skill-name>`. See RULES.md "GPU-Accelerated Tools" for the full decision flow.
