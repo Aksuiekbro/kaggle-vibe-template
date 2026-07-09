@@ -1,48 +1,46 @@
-# Competition: [Name]
+# Competition: hear-me-personalized-music-recommender
 
-> Fill this file when setting up a new competition. Every agent reads this.
+Community competition: https://www.kaggle.com/competitions/hear-me-personalized-music-recommender
 
-## Overview
-- **URL**: https://www.kaggle.com/competitions/[slug]
-- **Type**: [optimization | tabular | nlp | cv | code]
-- **Deadline**: [YYYY-MM-DD HH:MM UTC]
-- **Daily Submission Limit**: [number, typically 100 for optimization]
-- **Team Size**: [number]
-- **Prize**: [amount or "knowledge"]
+## Problem
 
-## Problem Description
+Personalized music recommendation: for each of 1,500 test users, recommend 50
+tracks they are likely to listen to next, from implicit-feedback listening logs.
 
-[Plain language description of what needs to be solved. Copy from competition page + your own understanding. Be specific about inputs, outputs, and constraints.]
+## Data
 
-## Evaluation Metric
-- **Metric**: [e.g., normalized_area, RMSE, F1, AUC-ROC]
-- **Direction**: [minimize | maximize]
-- **CV Variance Threshold**: [e.g., 0.005 — triggers overfitting warning if CV std exceeds this]
+`shared/data/`:
+- `interactions.csv` — 24,798,186 rows: user_id, item_id, listened_duration, listened_datetime (Aug 2025 window)
+- `item_metadata.csv` — 348,754 tracks: names, artists, duration, genres (Russian genre labels), like/dislike/download counts
+- `user_metadata.csv` — 279,071 users: age_bin, children, gender, top_genre, per-user like/dislike/download counts
+- `test.csv` — 1,500 user_ids to recommend for
+- `starter-notebook-recsys-v2.ipynb` — gated by C2; do not open before PREDICTION.md is registered
 
-## Data Description
-- **Files**: [list each data file and what it contains]
-- **Size**: [approximate total size]
-- **Format**: [CSV, images, text, parquet, etc.]
-- **Key Features**: [important columns/fields that matter for the solution]
+## Evaluation
 
-## Submission Format
-- **File**: [e.g., submission.csv]
-- **Columns**: [required columns and their types]
-- **Rows**: [how many, what they represent]
-- **Example**:
-```
-id,prediction
-1,0.5
-2,0.3
-```
+- **Metric**: MAP@50 (mean average precision over 50 recommendations per user)
+- **Direction**: maximize
+- **CV variance threshold**: 0.02
 
-## Known Constraints
-[Hardware limits, time limits, external data rules, specific competition rules. Include anything from the rules page that could affect strategy.]
+## Submission format
 
-## Initial Research
-[Approaches found in discussions, papers, similar past competitions. Each agent should add their findings here as they research.]
+See sample in starter notebook context: one row per (user, ranked recommendation), 1,500 users x 50 items, with an id column.
 
-## Baseline Scores
-- **Naive baseline**: [score of simplest possible submission, e.g., all zeros, mean prediction]
-- **Public best**: [current #1 on public LB if known]
-- **Medal thresholds**: [bronze/silver/gold cutoffs if known or estimable]
+## Benchmarks (do not read the prior attempt before PREDICTION.md is complete)
+
+- Our prior attempt (July 2026, laptop instance): best public/private **0.38583**
+- Leaderboard winner: **0.40442**; second place 0.36551 — our prior attempt already exceeds 2nd place
+- **Prior-attempt knowledge is at `/root/prior-hearme/`** (strategies, experiment
+  journals, progress logs from claude/codex/gemini). This is OUR OWN prior work —
+  after your prediction is registered, mine it like a sharing round: what was
+  tried (ALS candidates + target-encoded HGB rankers, per-user z-score blends,
+  temporal CV Aug1->Aug8 / Aug8->Aug16), what its postmortem gaps were, and what
+  the 0.386 -> 0.404 gap likely needs.
+
+## Known constraints
+
+- interactions.csv is 1.16 GB / 24.8M rows: the box has 4 GB RAM + 4 GB swap.
+  Load with dtypes (int32/float32), usecols, or chunks; NEVER a naive read_csv.
+  Heavy fits go to Kaggle kernels: `python3 tools/kkernel.py run --script ... --competition hear-me-personalized-music-recommender`
+- ML venv: `~/ml/bin/python`. implicit/lightfm not installed — pip install into the venv as needed.
+- Late-submission mode: real public/private scores return; treat as full-feedback run.
