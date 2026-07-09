@@ -734,3 +734,4 @@
 {"ts": "2026-07-09T04:05:08.356236+00:00", "rule": "C2", "event": "fired", "agent": "claude", "detail": "gate passed url=-"}
 {"ts": "2026-07-09T04:44:46.131343+00:00", "rule": "C2", "event": "fired", "agent": "claude", "detail": "gate passed url=-"}
 {"ts": "2026-07-09T04:50:27.860460+00:00", "rule": "C2", "event": "fired", "agent": "claude", "detail": "gate passed url=-"}
+{"ts": "2026-07-09T05:35:54.244391+00:00", "rule": "C11", "event": "fired", "agent": null, "detail": "retrieve anchor=stuck returned 3"}
