@@ -709,3 +709,14 @@
 {"ts": "2026-07-08T23:32:27.040937+00:00", "rule": "C11", "event": "fired", "agent": null, "detail": "retrieve anchor=stuck returned 3"}
 {"ts": "2026-07-08T23:38:17.367460+00:00", "rule": "C2", "event": "fired", "agent": "claude", "detail": "gate passed url=-"}
 {"ts": "2026-07-08T23:39:30.307803+00:00", "rule": "C11", "event": "fired", "agent": null, "detail": "retrieve anchor=stuck returned 3"}
+{"ts": "2026-07-08T23:45:57.062647+00:00", "rule": "C2", "event": "fired", "agent": "claude", "detail": "gate passed url=-"}
+{"ts": "2026-07-08T23:46:10.119107+00:00", "rule": "C11", "event": "fired", "agent": null, "detail": "retrieve anchor=stuck returned 3"}
+{"ts": "2026-07-08T23:52:00.216659+00:00", "rule": "C2", "event": "fired", "agent": "claude", "detail": "gate passed url=-"}
+{"ts": "2026-07-08T23:52:12.058536+00:00", "rule": "C11", "event": "fired", "agent": null, "detail": "retrieve anchor=stuck returned 3"}
+{"ts": "2026-07-09T00:04:10.118968+00:00", "rule": "C2", "event": "fired", "agent": "claude", "detail": "gate passed url=-"}
+{"ts": "2026-07-09T00:09:50.382104+00:00", "rule": "C2", "event": "fired", "agent": "claude", "detail": "gate passed url=-"}
+{"ts": "2026-07-09T00:15:29.063369+00:00", "rule": "C2", "event": "fired", "agent": "claude", "detail": "gate passed url=-"}
+{"ts": "2026-07-09T00:22:05.433190+00:00", "rule": "C2", "event": "fired", "agent": "claude", "detail": "gate passed url=-"}
+{"ts": "2026-07-09T00:27:47.151538+00:00", "rule": "C2", "event": "fired", "agent": "claude", "detail": "gate passed url=-"}
+{"ts": "2026-07-09T00:39:17.691717+00:00", "rule": "C2", "event": "fired", "agent": "claude", "detail": "gate passed url=-"}
+{"ts": "2026-07-09T00:50:30.816760+00:00", "rule": "C2", "event": "fired", "agent": "claude", "detail": "gate passed url=-"}
