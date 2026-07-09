@@ -35,6 +35,27 @@ During active multi-agent runs, do not let multiple agents edit this file concur
 | Forcing unseen recommendation slots (seen_limit<50) for all users | codex (prior run) | failed | n/a | Only the <50-history-only segment benefits |
 
 ## Key Decisions
+### Coordinator note — 2026-07-09 (use proven public recommenders, stop hand-rolling)
+
+Mature open-source recsys implementations exist for exactly this data shape
+(implicit feedback + metadata). Use them as CANDIDATE GENERATORS and scorers
+feeding the existing ranker. Cheap-probe order (measure candidate recall@500
+and direct MAP@50 on trusted CV for each):
+
+1. `implicit` library (pip): ItemKNN(cosine/bm25) and ALS/BPR properly tuned —
+   CPU-fast on sparse matrices.
+2. EASE (closed-form linear, ~15 lines numpy): restrict to top-30-50k items by
+   interaction count. Known to beat deep models on implicit feedback.
+3. SAR-style co-occurrence with TIME DECAY (Microsoft Recommenders algorithm —
+   reimplement the formula directly if the package is heavy). NOTE: this is the
+   2-hour-winner-shaped algorithm; its score is also evidence about the winner.
+4. Sequence models (SASRec via RecBole) ONLY after 1-3 are measured, on Kaggle
+   GPU kernels (tools/kkernel.py --gpu), not locally.
+
+Each generator = one experiment row with recall + MAP deltas. Blend candidates
+from decorrelated sources before ranker; that is where the oracle gap
+(0.569 -> 0.592+) actually closes.
+
 ### Coordinator note — 2026-07-09 (critical context: the winner had a 2-HOUR limit)
 
 The original competition was a 2-hour sprint. The 0.40442 winner built something
